@@ -128,7 +128,7 @@ body.titleActive #comms,body.titleActive #hint,body.titleActive #pauseBtn{displa
 
 </style></head><body class="titleActive"><div id="app"><div class="top"><div class="brand" aria-hidden="true"></div><div class="topbar"><button class="mini" id="soundBtn">♪ ON</button><button class="mini" id="pauseBtn">Ⅱ</button><button class="mini" id="fullBtn">⛶</button></div></div><div id="frame"><canvas id="game" width="480" height="800" aria-label="SHIRAYUKI LAST LIGHT 縦スクロール艦隊戦シューティング"></canvas><div id="banner"><b id="bannerTitle"></b><small id="bannerCaption"></small></div><div id="comms" aria-live="polite" aria-atomic="true"><div id="commAvatar" class="commAvatar" aria-hidden="true"></div><div class="commBody"><div class="commTop"><span class="commPulse">●</span> <span id="commFrom">ASTERION // COMMAND</span> <span class="commFreq">SECURE CHANNEL</span></div><div id="commLine">通信待機中</div></div></div><button id="skipLaunch" type="button">SKIP LAUNCH ▸</button><button id="bombBtn" type="button"><strong>◉</strong><span>BOMB ×2</span></button><div id="choiceTray"><div class="choiceHeader"><span>EVOLUTION // 1タップ即決・チップ自動合算</span><span id="choiceTime">7.0s</span></div><div class="choiceButtons" id="choiceButtons"></div></div><div id="overlay" class="overlay menu-poster"><div class="panel"><div class="posterArtwork" role="img" aria-label="母艦アステリオンと、電磁カタパルトから発艦する迎撃機SHIRAYUKI"></div><div class="eyebrow" id="eyebrow"></div><h1 id="title">SHIRAYUKI<br><em>LAST LIGHT</em></h1><p class="tag" id="tag">白雪 ― 最後の防衛線 ―</p><div id="modes" class="modes"><button class="mode" data-diff="easy"><b>EASY</b></button><button class="mode sel" data-diff="normal"><b>NORMAL</b></button><button class="mode" data-diff="hard"><b>HARD</b></button></div><select id="stageSelect" aria-label="開始ステージ"><option value="0">01 / 軌道防衛戦</option><option value="1">02 / 氷塔惑星</option><option value="2">03 / 廃棄衛星群</option><option value="3">04 / 神経樹海</option><option value="4">05 / 生体要塞</option></select><div id="result" hidden></div><button class="primary" id="startBtn">LAUNCH ▶</button><button id="continueBtn">CONTINUE — 残機を回復して再突入</button><details class="explain" id="explain"><summary>操作方法</summary><div class="helpText">スマホ：ドラッグで移動・射撃。離すと停止。<br>PC：WASD・矢印で移動／Space・Z・Jで射撃。<br>ボム：右下のBOMB／PCはX・Bキー。<br>強化選択：画面タップ／PCは1・2・3キー。</div></details></div></div></div><div class="tip" id="hint"></div></div><script src="./score/0_stage.js"></script><script src="./score/0_mid.js"></script><script src="./score/0_boss.js"></script><script src="./score/1_stage.js"></script><script src="./score/1_mid.js"></script><script src="./score/1_boss.js"></script><script src="./score/2_stage.js"></script><script src="./score/2_mid.js"></script><script src="./score/2_boss.js"></script><script src="./score/3_stage.js"></script><script src="./score/3_mid.js"></script><script src="./score/3_boss.js"></script><script src="./score/4_stage.js"></script><script src="./score/4_mid.js"></script><script src="./score/4_boss.js"></script><script>
 (()=>{'use strict';
-const GAME_VERSION='10.8-APP-ICON';const W=480,H=800,TAU=Math.PI*2,$=id=>document.getElementById(id),cv=$('game'),g=cv.getContext('2d',{alpha:false}),frame=$('frame'),overlay=$('overlay'),title=$('title'),tag=$('tag'),eyebrow=$('eyebrow'),startBtn=$('startBtn'),continueBtn=$('continueBtn'),result=$('result'),modes=$('modes'),stageSelect=$('stageSelect'),hint=$('hint'),bombBtn=$('bombBtn'),fireBtn={classList:{add(){},remove(){},toggle(){}},querySelector(){return null;}},banner=$('banner'),bannerTitle=$('bannerTitle'),bannerCaption=$('bannerCaption'),choiceTray=$('choiceTray'),choiceButtons=$('choiceButtons'),choiceTime=$('choiceTime');
+const GAME_VERSION='10.9-PERFORMANCE-BALANCE-FINALE';const W=480,H=800,TAU=Math.PI*2,$=id=>document.getElementById(id),cv=$('game'),g=cv.getContext('2d',{alpha:false}),frame=$('frame'),overlay=$('overlay'),title=$('title'),tag=$('tag'),eyebrow=$('eyebrow'),startBtn=$('startBtn'),continueBtn=$('continueBtn'),result=$('result'),modes=$('modes'),stageSelect=$('stageSelect'),hint=$('hint'),bombBtn=$('bombBtn'),fireBtn={classList:{add(){},remove(){},toggle(){}},querySelector(){return null;}},banner=$('banner'),bannerTitle=$('bannerTitle'),bannerCaption=$('bannerCaption'),choiceTray=$('choiceTray'),choiceButtons=$('choiceButtons'),choiceTime=$('choiceTime');
 const clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),rand=(a,b)=>a+Math.random()*(b-a),rr=n=>Math.random()*n,lerp=(a,b,t)=>a+(b-a)*t,dist=(a,b,c,d)=>Math.hypot(a-c,b-d),dsq=(a,b,c,d)=>(a-c)**2+(b-d)**2;let now=0;const WEAPONS=['vulcan','laser','bubble','spread','rail','plasma','arc'];
 const STAGES=[
  {name:'軌道防衛戦',en:'ORBITAL DEFENSE',boss:'CERBERUS / 寄生軌道砲艦',mid:'TALON / 寄生迎撃艦',accent:'#49bcff',dark:'#020c1d',flesh:'#274869',bone:'#a9dcef',env:'orbit'},
@@ -137,7 +137,7 @@ const STAGES=[
  {name:'神経樹海',en:'SYNAPSE FOREST',boss:'SYNAPSE / 毒蛍の脳樹',mid:'CEREBRUM / 胞子の捕食者',accent:'#4dffb3',dark:'#031c19',flesh:'#21664c',bone:'#b3ffcf',env:'neural'},
  {name:'生体要塞',en:'BIO FORTRESS',boss:'UMBRA / 生体要塞中枢',mid:'VESPER / 鋼殻の生体門',accent:'#ff5d88',dark:'#170918',flesh:'#762b4b',bone:'#fdb3cb',env:'heart'}
 ];
-const DIFF={easy:{label:'EASY',hp:7,barrier:3,continue:4,bullet:.72,density:.72,dmg:.73,enemyHp:.79,drops:1.35},normal:{label:'NORMAL',hp:5,barrier:2,continue:3,bullet:.91,density:.90,dmg:.92,enemyHp:.94,drops:1.14},hard:{label:'HARD',hp:4,barrier:1,continue:2,bullet:1.10,density:1.08,dmg:1.10,enemyHp:1.12,drops:1.0}};
+const DIFF={easy:{label:'EASY',hp:7,barrier:3,continue:4,bullet:.72,density:.72,dmg:.73,enemyHp:.79,drops:1.35},normal:{label:'NORMAL',hp:5,barrier:2,continue:3,bullet:.91,density:.90,dmg:.92,enemyHp:1.09,drops:1.14},hard:{label:'HARD',hp:4,barrier:1,continue:2,bullet:1.10,density:1.08,dmg:1.10,enemyHp:1.12,drops:1.0}};
 const ENEMY={leech:{hp:24,r:17,speed:110,points:120},eye:{hp:45,r:23,speed:65,points:230},razor:{hp:33,r:19,speed:150,points:230},spore:{hp:52,r:26,speed:57,points:330},plate:{hp:120,r:31,speed:43,points:500},stalker:{hp:78,r:24,speed:104,points:420},shrike:{hp:130,r:28,speed:82,points:700},carrier:{hp:450,r:49,speed:38,points:1750},ace:{hp:390,r:31,speed:135,points:2800},harpoon:{hp:72,r:21,speed:142,points:420},turret:{hp:165,r:27,speed:36,points:510},mimic:{hp:90,r:21,speed:88,points:480},screamer:{hp:95,r:25,speed:93,points:510},warden:{hp:220,r:35,speed:42,points:790},urchin:{hp:125,r:24,speed:60,points:550},sentinel:{hp:150,r:27,speed:72,points:720}};
 const UPS={vulcan:{name:'VULCAN',detail:'多連装・連射',sym:'✶',color:'#fff1ad'},laser:{name:'LASER',detail:'青白い収束光',sym:'⌁',color:'#8be8f1'},bubble:{name:'BUBBLE',detail:'電磁泡の爆散',sym:'◉',color:'#9cc2ee'},spread:{name:'SPREAD',detail:'扇状プラズマ',sym:'✻',color:'#f7b266'},rail:{name:'RAILGUN',detail:'超高速貫通弾',sym:'➠',color:'#ffffff'},plasma:{name:'PLASMA',detail:'爆発性光弾',sym:'✷',color:'#ed7eff'},arc:{name:'ARC',detail:'連鎖放電砲',sym:'ϟ',color:'#b5ff80'},option:{name:'OPTION',detail:'随伴砲塔 +1',sym:'◇',color:'#f2cc94'},aegis:{name:'AEGIS OPTION',detail:'敵弾を限定迎撃する防御端末',sym:'⬡',color:'#8ddfff'},missile:{name:'MISSILE',detail:'追尾ミサイル +1',sym:'➶',color:'#ffc6aa'},drone:{name:'DRONE',detail:'独立支援機',sym:'⬟',color:'#b1e9ff'},barrier:{name:'BARRIER',detail:'バリア再生',sym:'⬡',color:'#8ce5c1'},bomb:{name:'BOMB',detail:'ボム +1',sym:'✹',color:'#e77e78'},repair:{name:'REPAIR',detail:'耐久力回復',sym:'✚',color:'#d6f0c1'},speed:{name:'VECTOR',detail:'移動加速',sym:'➤',color:'#e9bf82'},gravity:{name:'GRAVITY',detail:'重力渦ボム',sym:'◎',color:'#b4bafa'},stasis:{name:'STASIS',detail:'時間停止ボム',sym:'❄',color:'#a0d5ed'},nova:{name:'NOVA',detail:'超広域ボム',sym:'☀',color:'#ffdc91'},overdrive:{name:'OVERDRIVE',detail:'武器出力+12%',sym:'▲',color:'#ffb795'},rapid:{name:'RAPID',detail:'連射速度+12%',sym:'≋',color:'#fcf3b0'},focus:{name:'FOCUS',detail:'ボス弱点威力+',sym:'⊕',color:'#b0fcff'},twin:{name:'TWIN',detail:'両翼に副砲',sym:'⋈',color:'#b4defc'},shockwave:{name:'SHOCK',detail:'命中時の衝撃波',sym:'◎',color:'#bcacf9'},chain:{name:'CHAIN',detail:'電弧の追撃',sym:'ϟ',color:'#e3fc91'},pierce:{name:'PIERCE',detail:'弾が敵を貫通',sym:'⇡',color:'#edf5ff'},payload:{name:'PAYLOAD',detail:'ミサイル爆風強化',sym:'✳',color:'#ffc094'},echo:{name:'ECHO',detail:'残響追撃弾',sym:'↭',color:'#bdcaff'},ioncore:{name:'ION CORE',detail:'レーザー幅強化',sym:'⌘',color:'#a8fff1'},armor:{name:'ARMOR',detail:'最大耐久+1',sym:'▣',color:'#c4dad7'},regen:{name:'REGEN',detail:'装甲の自己修復',sym:'✚',color:'#c0ffb7'},magnet:{name:'MAGNET',detail:'回収範囲拡大',sym:'⊙',color:'#b3b9ff'},salvage:{name:'SALVAGE',detail:'敵の物資回収率+',sym:'✦',color:'#ffe4a2'},cloak:{name:'CLOAK',detail:'被弾後無敵延長',sym:'◌',color:'#a2defc'},warp:{name:'WARP',detail:'緊急回避機構',sym:'⇴',color:'#b7acff'},mines:{name:'MINES',detail:'機雷の追加投射',sym:'✹',color:'#f8a5ff'},homing:{name:'SEEKER',detail:'弾の誘導性を追加',sym:'⌖',color:'#b8f2d4'},thruster:{name:'THRUSTER',detail:'回避機動強化',sym:'⟫',color:'#fcdbb9'},reactor:{name:'REACTOR',detail:'副砲の出力増強',sym:'✺',color:'#fbe0bc'},phase:{name:'PHASE',detail:'各面開始時に装甲',sym:'◇',color:'#e8c7ff'}};
 const comms=$('comms'),commFrom=$('commFrom'),commLine=$('commLine'),commAvatar=$('commAvatar'),skipLaunch=$('skipLaunch');
@@ -971,13 +971,7 @@ function drawCarrierLaunch(){
  const art=buildCarrierArt();
  g.save();g.translate(240,hullY+310);g.scale(hullScale,hullScale);
  g.shadowColor='#06101e';g.shadowBlur=22;g.drawImage(art,-228,-310,456,700);g.shadowBlur=0;
- const wreck=s===0?0:s===1?2:s===2?5:s===3?8:12;
- for(let j=0;j<wreck;j++){
-   const x=((j*127+s*19)%320)-160,y=((j*83+150)%560)-210,sz=7+j%4*4;
-   g.fillStyle='#060a13dd';g.beginPath();g.ellipse(x,y,sz*1.6,sz*2.1,.42,0,TAU);g.fill();
-   const f=g.createRadialGradient(x,y,0,x,y,sz*2.3);f.addColorStop(0,'#fff1c5');f.addColorStop(.28,'#ff945ad9');f.addColorStop(1,'#ff4b2900');g.fillStyle=f;g.fillRect(x-sz*3,y-sz*3,sz*6,sz*6);
-   g.fillStyle='#1d242d88';g.beginPath();g.ellipse(x+5,y-18-Math.sin(t*2+j)*6,sz*1.4,sz*2.4,.18,0,TAU);g.fill();
- }
+ drawAsterionDamage(t,s);
  g.restore();
  const py=686; // fixed camera-tracked ship position. NO upward/downward jump.
  // Charge coils creep along magnetic rails; clamps hold the fighter stationary.
@@ -1504,19 +1498,19 @@ function majorAct(e,dt){if(!e)return;e.t+=dt;e.inv=Math.max(0,e.inv-dt);e.flash=
  if(phase!==e.phase){e.phase=phase;bossCues.length=0;ring(e.x,e.y,theme().accent,190,290);shake=10;speak('PHASE '+(phase+1)+' // EVOLUTION',e.x,e.y+e.r+38,'#fff4d1',2,16);if(e.type==='major'){bossMutation(e,phase)}}
  e.shoot-=dt;if(e.shoot<=0){majorShoot(e)}
  if(dsq(e.x,e.y,player.x,player.y)<(e.r*.78+11)**2)receiveDamage();}
-function damageEnemy(e,dmg){if(!e||e.hp<=0||e.inv>0)return;if(e.type==='plate'&&e.hp/e.maxhp>.5)dmg*=.72;if(e.type==='ace'&&Math.sin(e.t*5)>.6)dmg*=.85;e.hp-=dmg;e.flash=.055;if(Math.random()<.25)burst(e.x+rand(-10,10),e.y+rand(-8,8),'#d6b19a',2,45);if(e.hp<=0)killEnemy(e)}
+function damageEnemy(e,dmg){if(!e||e.hp<=0||e.inv>0||e.y<122)return;if(e.type==='plate'&&e.hp/e.maxhp>.5)dmg*=.72;if(e.type==='ace'&&Math.sin(e.t*5)>.6)dmg*=.85;e.hp-=dmg;e.flash=.055;if(Math.random()<.25)burst(e.x+rand(-10,10),e.y+rand(-8,8),'#d6b19a',2,45);if(e.hp<=0)killEnemy(e)}
 function damageMajor(e,dmg,hitX=null,hitY=null){if(!e||e.hp<=0||e.inv>0)return;let d=dmg;let core=hitX!==null&&dsq(hitX,hitY,e.x,e.y+e.r*.17)<(e.r*.32)**2;if(core)d*=1.18;if(e.type==='major'){if(e.phase===0)d*=.82;else if(e.phase===1)d*=.91;else d*=.97;}
  let limit=(e.type==='major'?44+s*6:49+s*4)*D.enemyHp;d=Math.max(0,Math.min(d,limit-e.damaged));if(!d)return;e.damaged+=d;e.hp-=d;e.flash=.055;if(Math.random()<.45)burst(hitX??e.x,hitY??e.y,'#efb3a0',3,56);if(e.hp<=0)majorDead(e)}
 function chainLightning(origin,dmg,hops){if(!origin||hops<=0)return;let target=enemies.filter(e=>e!==origin&&e.inv<=0&&e.hp>0).sort((a,b)=>dsq(a.x,a.y,origin.x,origin.y)-dsq(b.x,b.y,origin.x,origin.y))[0];if(!target||dist(origin.x,origin.y,target.x,target.y)>160)return;damageEnemy(target,dmg);ring(target.x,target.y,'#a5f3ff',22,400);}
-function nearestTarget(x,y,maxRange=440){let target=null,bd=maxRange*maxRange;for(let e of enemies){if(e.y<20||e.hp<=0)continue;let d=dsq(x,y,e.x,e.y);if(d<bd){bd=d;target=e}}for(let e of [mid,boss]){if(e&&e.inv===0){let d=dsq(x,y,e.x,e.y);if(d<bd){bd=d;target=e}}}return target}
-function addShot(x,y,vx,vy,damage,kind='slug',r=4,extra={}){if(pbullets.length>160)return;pbullets.push({x,y,vx,vy,damage,kind,r,age:0,life:3.5,hit:new Set(),...extra})}
+function nearestTarget(x,y,maxRange=440){let target=null,bd=maxRange*maxRange;for(let e of enemies){if(e.y<115||e.hp<=0)continue;let d=dsq(x,y,e.x,e.y);if(d<bd){bd=d;target=e}}for(let e of [mid,boss]){if(e&&e.inv===0){let d=dsq(x,y,e.x,e.y);if(d<bd){bd=d;target=e}}}return target}
+function addShot(x,y,vx,vy,damage,kind='slug',r=4,extra={}){if(pbullets.length>112)return;pbullets.push({x,y,vx,vy,damage,kind,r,age:0,life:3.5,hit:new Set(),...extra})}
 function firePlayer(){
  const p=player,weapon=p.weapon,lv=p.level,dmg=1+p.overdrive*.12,rapid=1+p.rapid*.13;
  const y=p.y-32;
  if(weapon==='vulcan'){let n=Math.min(5,lv+1);for(let i=0;i<n;i++){let off=(i-(n-1)/2)*11,ang=(i-(n-1)/2)*.069;addShot(p.x+off,y,ang*760,-750,5.4*dmg,'slug',3.6)}p.fireClock=.17/rapid}
  else if(weapon==='laser'){let offsets=lv===1?[0]:lv===2?[-7,7]:lv===3?[-13,0,13]:[-18,-6,6,18];for(let dx of offsets){let x=p.x+dx;laserFX=.11;clearBulletLane(x,3.5+p.ioncore*3,7);for(let e of [...enemies]){if(e.inv>0||e.y>p.y-22||e.y<65)continue;if(Math.abs(e.x-x)<e.r*.55+5+p.ioncore*4)damageEnemy(e,7.1*dmg)}for(let e of [mid,boss]){if(!e||e.y>p.y-20||e.inv>0)continue;if(Math.abs(e.x-x)<e.r*.72+6+p.ioncore*4)damageMajor(e,6.8*dmg,x,e.y+e.r*.2)}}p.fireClock=.23/rapid}
  else if(weapon==='bubble'){let n=Math.min(3,Math.ceil(lv/2)+1);for(let i=0;i<n;i++){let off=(i-(n-1)/2)*22;addShot(p.x+off,y,off*.5,-440,10*dmg,'bubble',12+lv,{splash:35+lv*8})}p.fireClock=.3/rapid}
- else if(weapon==='spread'){let n=3+lv*2;for(let i=0;i<n;i++){let k=(i-(n-1)/2)/((n-1)/2);addShot(p.x+k*10,y,k*245,-690,5.3*dmg,'plasma',4.2,{splash:0})}p.fireClock=.28/rapid}
+ else if(weapon==='spread'){let n=Math.min(7,3+lv*2);for(let i=0;i<n;i++){let k=(i-(n-1)/2)/((n-1)/2);addShot(p.x+k*10,y,k*245,-690,3.7*dmg,'plasma',4.2,{splash:0})}p.fireClock=.37/(1+p.rapid*.075)}
  else if(weapon==='rail'){let n=lv>=3?2:1;for(let i=0;i<n;i++){let x=p.x+(i-(n-1)/2)*18;addShot(x,y,0,-1250,(15+lv*2)*dmg,'rail',3,{pierce:4})}p.fireClock=.37/rapid}
  else if(weapon==='plasma'){for(let i=0;i<(lv>=3?3:lv>=2?2:1);i++){let dx=(i-((lv>=3?3:lv>=2?2:1)-1)/2)*26;addShot(p.x+dx,y,dx*2,-590,13*dmg,'plasma',9+lv,{splash:36+lv*4})}p.fireClock=.34/rapid}
  else if(weapon==='arc'){let n=Math.min(4,lv+1);for(let i=0;i<n;i++){let dx=(i-(n-1)/2)*19;addShot(p.x+dx,y,dx*1.4,-680,9*dmg,'arc',4.5,{homing:true})}p.fireClock=.30/rapid}
@@ -1532,9 +1526,9 @@ function updatePlayerGuns(dt){
  if(player.aegis>0){player.aegisCooldown=Math.max(0,(player.aegisCooldown||0)-dt);if(player.aegisCharge<player.aegis&&player.aegisCooldown<=0){player.aegisCharge++;player.aegisCooldown=7.2-(player.aegis-1)*1.0;}}
  player.weaponFlash=Math.max(0,player.weaponFlash-dt);
  if(isFiring()&&player.fireClock<=0)firePlayer();else if(!isFiring())player.fireClock=Math.max(0,player.fireClock);
- if(isFiring()&&player.option>0&&player.optionClock<=0){for(let i=0;i<player.option;i++){let q=optionPos(i);addShot(q.x,q.y-17,0,-710,4.5+player.reactor*1.6,'option',3.1,{homing:player.homing>0})}player.optionClock=.24/(1+player.reactor*.13)}
- if(isFiring()&&player.drone>0&&player.droneClock<=0){for(let i=0;i<player.drone;i++){let q=dronePos(i);let target=nearestTarget(q.x,q.y,420);if(target){let a=Math.atan2(target.y-q.y,target.x-q.x);addShot(q.x,q.y,Math.cos(a)*540,Math.sin(a)*540,8+player.reactor*2,'drone',4,{homing:true})}}player.droneClock=.45}
- if(isFiring()&&player.missile>0&&player.missileClock<=0){for(let i=0;i<player.missile;i++){let dx=(i-(player.missile-1)/2)*38;addShot(player.x+dx,player.y+12,dx*1.3,-280,15+player.payload*2,'missile',6,{trail:0,splash:player.payload*24})}player.missileClock=.9/(1+player.reactor*.12)}
+ if(isFiring()&&player.option>0&&player.optionClock<=0){for(let i=0;i<player.option;i++){let q=optionPos(i);addShot(q.x,q.y-17,0,-710,3.0+player.reactor*.6,'option',3.1,{homing:player.homing>0})}player.optionClock=.43/(1+player.reactor*.07)}
+ if(isFiring()&&player.drone>0&&player.droneClock<=0){for(let i=0;i<player.drone;i++){let q=dronePos(i);let target=nearestTarget(q.x,q.y,420);if(target){let a=Math.atan2(target.y-q.y,target.x-q.x);addShot(q.x,q.y,Math.cos(a)*540,Math.sin(a)*540,8+player.reactor*2,'drone',4,{homing:true})}}player.droneClock=.60}
+ if(isFiring()&&player.missile>0&&player.missileClock<=0){for(let i=0;i<player.missile;i++){let dx=(i-(player.missile-1)/2)*38;addShot(player.x+dx,player.y+12,dx*1.3,-280,15+player.payload*2,'missile',6,{trail:0,splash:player.payload*24})}player.missileClock=1.06/(1+player.reactor*.08)}
  if(isFiring()&&player.mines>0&&player.mineClock<=0){let n=player.mines;for(let i=0;i<n;i++)addShot(player.x+(i-(n-1)/2)*46,player.y-7,(i-(n-1)/2)*80,-310,13,'plasma',11,{splash:35});player.mineClock=2.4}
  if(player.regen&&player.regenClock>28/player.regen){player.hp=Math.min(player.maxhp,player.hp+1);player.regenClock=0}
 }
@@ -1576,7 +1570,7 @@ function updatePlayerShots(dt){
    if((p.kind==='rail'||player.pierce>0)&&p.hit.size<1+(p.kind==='rail'?p.pierce:player.pierce))return false;
    return true;
   };
-  if(!consumed)for(let e of [...enemies]){if(e.y<47)continue;if(hit(e,false)){consumed=true;break}}
+  if(!consumed)for(let e of [...enemies]){if(e.y<122)continue;if(hit(e,false)){consumed=true;break}}
   if(!consumed)for(let e of [mid,boss])if(hit(e,true)){consumed=true;break}
   if(consumed||p.life<=0||p.y<-40||p.y>H+45||p.x<-40||p.x>W+40)pbullets.splice(i,1)
  }
@@ -2159,5 +2153,152 @@ window.__SHIRAYUKI_V10={
  carrierReady:()=>!!carrierArt,
  summonThirdAlly:()=>reinforceAlly(),
 };
+/* SHIRAYUKI v10.9: frame-time adaptive effects, distinct radio cast, final cinematic. */
+const SHIRA109={lowFx:false,slow:0,fast:0,frames:0,ending:0,sequence:-1};
+// On slower phones simplify the heavy, per-projectile glows, not the collision logic.
+const shiraOriginalLoop=loop;
+loop=function(t){
+ const gap=last?t-last:16.7;
+ if(mode==='playing'&&!launchActive&&gap>0&&gap<140){
+  if(gap>27){SHIRA109.slow++;SHIRA109.fast=0}
+  else if(gap<19){SHIRA109.fast++;SHIRA109.slow=Math.max(0,SHIRA109.slow-1)}
+  else{SHIRA109.slow=Math.max(0,SHIRA109.slow-.3);SHIRA109.fast=Math.max(0,SHIRA109.fast-1)}
+  if(SHIRA109.slow>8){SHIRA109.lowFx=true;SHIRA109.slow=0}
+  if(SHIRA109.fast>240){SHIRA109.lowFx=false;SHIRA109.fast=0}
+ }
+ SHIRA109.frames++;shiraOriginalLoop(t)
+};
+const shiraOldBurst=burst;
+burst=function(x,y,color='#b14b51',n=14,power=140){
+ return shiraOldBurst(x,y,color,SHIRA109.lowFx?Math.min(n,8):Math.min(n,18),power)
+};
+const shiraOriginalBullets=drawBullets;
+drawBullets=function(){
+ if(!SHIRA109.lowFx&&pbullets.length<34&&ebullets.length<58)return shiraOriginalBullets();
+ g.save();g.lineCap='round';g.globalCompositeOperation='source-over';g.shadowBlur=0;
+ // Batch hostile projectiles by color to avoid hundreds of context shadows.
+ for(const [kind,color] of [['glob','#e78d9f'],['acid','#a5ffaa'],['crystal','#b7faff'],['metal','#ffcf9e'],['void','#e59bff'],['ion','#8cdbff'],['bone','#f9b39b'],['thorn','#f0d1b1']]){
+  g.strokeStyle=color;g.lineWidth=3;g.beginPath();
+  for(const b of ebullets)if(b.kind===kind){const l=Math.min(16,Math.max(6,b.r*2));const v=Math.hypot(b.vx,b.vy)||1;g.moveTo(b.x-b.vx/v*l*.42,b.y-b.vy/v*l*.42);g.lineTo(b.x+b.vx/v*l*.58,b.y+b.vy/v*l*.58)}
+  g.stroke();
+ }
+ for(const [kind,color] of [['slug','#bdf4ff'],['option','#91d6ff'],['drone','#a1e8ff'],['plasma','#dba1ff'],['bubble','#8eeaff'],['missile','#ffc48c'],['rail','#fff1c3'],['arc','#9fffd0']]){
+  g.strokeStyle=color;g.lineWidth=kind==='rail'?4:kind==='bubble'?5:kind==='plasma'?4:2.7;g.beginPath();
+  for(const b of pbullets)if(b.kind===kind){const l=kind==='rail'?38:kind==='plasma'?23:20;const v=Math.hypot(b.vx,b.vy)||1;g.moveTo(b.x-b.vx/v*l*.36,b.y-b.vy/v*l*.36);g.lineTo(b.x+b.vx/v*l*.64,b.y+b.vy/v*l*.64)}
+  g.stroke();
+ }
+ if(laserFX>0&&player?.weapon==='laser'){
+  g.strokeStyle='#9ceeff';g.lineWidth=3;g.beginPath();const offs=player.level===1?[0]:player.level===2?[-7,7]:[-13,0,13];for(const dx of offs){g.moveTo(player.x+dx,60);g.lineTo(player.x+dx,Math.max(65,player.y-20))}g.stroke();
+ }
+ g.restore()
+};
+const shiraOriginalParticles=drawParticles;
+drawParticles=function(){
+ if(!SHIRA109.lowFx&&particles.length<105)return shiraOriginalParticles();
+ g.save();g.shadowBlur=0;
+ for(const p of particles){g.globalAlpha=clamp(p.life/Math.max(.1,p.max),0,1);g.fillStyle=p.color;g.fillRect(p.x-p.r*.5,p.y-p.r*.5,Math.max(1,p.r),Math.max(1,p.r))}
+ g.globalAlpha=.7;for(const q of rings){g.globalAlpha=.7*(1-q.r/q.max);g.strokeStyle=q.color;g.lineWidth=2;g.beginPath();g.arc(q.x,q.y,q.r,0,TAU);g.stroke()}
+ g.globalAlpha=1;for(const t of texts){g.globalAlpha=clamp(t.time/.35,0,1);paintText(t.t,t.x,t.y,t.color,t.size)}g.restore()
+};
+// Two new, distinct faces replace duplicates. Existing Mina art is NOT changed.
+RESTORED_CREW_PORTRAITS.wing1='data:image/jpeg;base64,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';
+RESTORED_CREW_PORTRAITS.wing3='data:image/jpeg;base64,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';
+// Apply the same unique portrait consistently to every subtitle from that callsign.
+window.__SHIRAYUKI_CREW_109=()=>Object.fromEntries(Object.keys(SPEAKERS).map(role=>[role,{label:SPEAKERS[role].label,portrait:RESTORED_CREW_PORTRAITS[role]?.slice(0,28)}]));
+// Torn armor, flame tongues, cracked plating and drifting layered black smoke.
+function drawAsterionDamage(t,stage=s,weight=1){
+ const hits=stage===0?0:[2,4,6,9][Math.min(3,stage-1)];
+ if(!hits)return;
+ g.save();g.lineJoin='bevel';
+ for(let j=0;j<hits;j++){
+  if(SHIRA109.lowFx&&j%2===1)continue;
+  const x=((j*137+stage*29)%304)-152,y=((j*119+stage*37)%442)-188;
+  const size=(10+j%3*3)*weight,phase=t*2.4+j*3.1;
+  g.save();g.translate(x,y);g.rotate(Math.sin(j*21)*.35);
+  // A punched, angular cavity: no circular cartoon blast marks.
+  g.fillStyle='#01050a';g.strokeStyle='#513e3b';g.lineWidth=3;
+  g.beginPath();g.moveTo(-size*1.25,-size*.3);g.lineTo(-size*.75,-size*.85);g.lineTo(-size*.23,-size*.48);g.lineTo(size*.3,-size*1.12);g.lineTo(size*.8,-size*.4);g.lineTo(size*1.25,-size*.35);g.lineTo(size*.77,size*.21);g.lineTo(size*.93,size*.83);g.lineTo(size*.08,size*.57);g.lineTo(-size*.34,size);g.lineTo(-size*.9,size*.35);g.closePath();g.fill();g.stroke();
+  g.strokeStyle='#bf6e44';g.lineWidth=1.8;g.beginPath();g.moveTo(-size,-size*.4);g.lineTo(-size*.5,-size*.95);g.lineTo(size*.23,-size*.49);g.lineTo(size*.7,-size*.93);g.stroke();
+  g.strokeStyle='#a8afae8c';g.lineWidth=2;for(let k=0;k<3;k++){g.beginPath();g.moveTo(-size+(k*size*.9),size*.35);g.lineTo(-size*1.8+(k*size*.8),size*(.65+k*.22));g.stroke()}
+  // Flame facets are sharp tapered shapes, separately animated.
+  for(let k=0;k<3;k++){
+   const flicker=.76+.2*Math.sin(phase+k*2),dx=(k-1)*size*.43;
+   g.fillStyle=k===1?'#fff0b5':k===0?'#ff6b24':'#ffc05f';
+   g.beginPath();g.moveTo(dx-size*.30,-size*.15);g.lineTo(dx+Math.sin(phase+k)*size*.26,-size*(1.7+k*.42)*flicker);g.lineTo(dx+size*.34,-size*.1);g.closePath();g.fill();
+  }
+  g.restore();
+  // Directional smoke cloud with multiple irregular lobes and wind drift.
+  for(let k=0;k<4;k++){
+   const ySmoke=y-(k+1)*17*weight,drift=Math.sin(t*.7+j+k*.8)*5+(k+1)*4;
+   const r=(8+k*3+j%3)*weight;
+   g.globalAlpha=.55-k*.07;g.fillStyle=k%2===0?'#10131b':'#25272d';
+   g.beginPath();g.moveTo(x+drift-r,ySmoke+5);g.bezierCurveTo(x+drift-r*1.3,ySmoke-r*.45,x+drift-r*.2,ySmoke-r*1.3,x+drift+r*.35,ySmoke-r*.8);
+   g.bezierCurveTo(x+drift+r*1.6,ySmoke-r*.35,x+drift+r*.9,ySmoke+r*.35,x+drift+r*.2,ySmoke+r*.65);g.closePath();g.fill();
+  }
+  g.globalAlpha=1;
+  for(let k=0;k<2;k++){const q=t*1.5+j*3+k*5;g.fillStyle='#ffb769';g.fillRect(x+Math.sin(q*4)*(size*1.8),y-((q*37)%75),1.7,3.1)}
+ }
+ g.restore()
+}
+// Finale: final explosion, exhausted crew transmissions, a return to ASTERION, sunrise and credits.
+let shiraEndingTime=0,shiraEndingBeat=-1;
+const shiraEndingCues=[
+ [1.1,'control','……中枢の反応、消えました。敵の侵食信号、完全に停止。'],
+ [5.5,'engineer','白雪！ 応答して！ 帰投航路は開けてあるから！'],
+ [10.4,'wing1','SHIRAYUKI、後ろは任せろ。みんなで帰るぞ！'],
+ [15.4,'captain','全機へ。こちらアステリオン。帰投を許可する。……よく、生きて戻った。'],
+ [21.1,'control','お帰りなさい、SHIRAYUKI。……本当に、よかった。']
+];
+const shiraSkip=document.createElement('button');shiraSkip.type='button';shiraSkip.textContent='ENDING SKIP ▸';shiraSkip.setAttribute('aria-label','エンディングをスキップする');
+Object.assign(shiraSkip.style,{position:'absolute',right:'11px',top:'11px',zIndex:'9',display:'none',padding:'10px 13px',background:'#061625e8',border:'1px solid #6cbacd',color:'#e4faff',font:'800 11px system-ui',borderRadius:'3px'});
+frame.appendChild(shiraSkip);shiraSkip.addEventListener('click',finishShiraEnding);
+function finishShiraEnding(){
+ if(mode!=='ending')return;shiraSkip.style.display='none';comms.classList.remove('show');commQueue=[];recordBest();
+ showMenu('victory');eyebrow.textContent='ASTERION // MISSION ACCOMPLISHED';title.innerHTML='SHIRAYUKI<br><em>LAST LIGHT</em>';
+ tag.textContent='五つの戦域を越えて、白雪は母艦へ帰還した。';startBtn.textContent='もう一度出撃 ▶';
+ result.textContent=`FINAL SCORE ${score.toLocaleString()} / BEST ${best.toLocaleString()}`;
+}
+const shiraOldMajorDead=majorDead;
+majorDead=function(e){
+ const final=(e===boss&&s===STAGES.length-1&&mode==='playing');shiraOldMajorDead(e);
+ if(final){mode='ending';shiraEndingTime=0;shiraEndingBeat=-1;banner.classList.remove('show');bannerT=0;fireHeld=false;drag=null;overlay.classList.add('hidden');choiceTray.classList.remove('show');bombBtn.classList.remove('active');comms.classList.add('show');shiraSkip.style.display='block';musicStart('stage')}
+};
+const shiraOldTick=tick;
+tick=function(dt){
+ if(mode!=='ending')return shiraOldTick(dt);
+ now+=dt;shiraEndingTime+=dt;scroll+=dt*18;updateVisual(dt);
+ commTime=Math.max(0,commTime-dt);
+ if(commTime<=0){comms.classList.remove('show');if(commQueue.length){const q=commQueue.shift();transmit(q.role,q.line,q.duration,q.urgent)}}
+ while(shiraEndingBeat+1<shiraEndingCues.length&&shiraEndingTime>=shiraEndingCues[shiraEndingBeat+1][0]){
+  shiraEndingBeat++;const cue=shiraEndingCues[shiraEndingBeat];commTime=0;commQueue=[];transmit(cue[1],cue[2],5.2,false)
+ }
+ if(shiraEndingTime>=29)finishShiraEnding()
+};
+function renderShiraEnding(){
+ const t=shiraEndingTime,fade=clamp((t-2)/5,0,1);
+ g.save();g.fillStyle='#020810';g.fillRect(0,0,W,H);
+ // Stable starfield; slow parallax rather than repeatedly allocating sprites.
+ for(let i=0;i<92;i++){const x=(i*127.31)%480,y=(i*83.61+t*(.35+i%4*.13))%800;g.fillStyle=i%4?'#bbdbf99c':'#ffdfb3c8';g.fillRect(x,y,i%7===0?2:1,i%7===0?2:1)}
+ const dawn=g.createRadialGradient(410,430,24,350,450,460);dawn.addColorStop(0,'#fff4ce');dawn.addColorStop(.12,'#ffb97c');dawn.addColorStop(.38,'#2e7199');dawn.addColorStop(1,'#030b1d');g.globalAlpha=fade;g.fillStyle=dawn;g.fillRect(0,70,480,700);g.globalAlpha=1;
+ // Dawn limb beyond the carrier, a visual resolution to the final operation.
+ g.save();g.strokeStyle='#64cafcb8';g.lineWidth=7;g.beginPath();g.ellipse(240,960,340,410,0,Math.PI,2*Math.PI);g.stroke();g.restore();
+ const art=buildCarrierArt(),arrive=clamp((t-4)/17,0,1),scale=.42+.19*arrive;
+ g.save();g.translate(240,280+60*arrive);g.scale(scale,scale);g.drawImage(art,-228,-310,456,700);drawAsterionDamage(t,4,1.15);g.restore();
+ if(t<4){g.fillStyle=`rgba(225,70,84,${.18*(1-t/4)})`;g.fillRect(0,0,W,H);const r=14+t*48;let glow=g.createRadialGradient(240,185,1,240,185,r);glow.addColorStop(0,'#ffefd3c4');glow.addColorStop(.25,'#ff9a6e93');glow.addColorStop(1,'#ff442200');g.fillStyle=glow;g.fillRect(240-r,185-r,r*2,r*2);for(let i=0;i<18;i++){const a=i*TAU/18+t*.28,d=r*(.25+(i%4)*.13),len=12+(i%5)*8;g.strokeStyle=i%3?'#fba47690':'#ffd9b8cb';g.lineWidth=i%5===0?2.7:1.5;g.beginPath();g.moveTo(240+Math.cos(a)*d,185+Math.sin(a)*d);g.lineTo(240+Math.cos(a)*(d+len),185+Math.sin(a)*(d+len));g.stroke()}}
+ // Lead fighter and the surviving wingmen, returning in formation.
+ if(t>=5){let px=235+Math.sin(t*.6)*8,py=635-clamp((t-20)/7,0,1)*85;
+   drawShip(px,py,now,false);
+   g.strokeStyle='#5ed4ff6e';g.lineWidth=3;g.beginPath();g.moveTo(px-10,py+31);g.lineTo(px-16,py+88);g.moveTo(px+10,py+31);g.lineTo(px+16,py+88);g.stroke();
+   for(let i=0;i<2;i++){const side=i?1:-1,x=px+side*(95+Math.sin(t+i)*8),y=py+50+i*26;g.save();g.translate(x,y);g.fillStyle=i?'#8cbed9':'#b8d9f4';g.strokeStyle='#d5ebff';g.lineWidth=2;g.beginPath();g.moveTo(0,-26);g.lineTo(8,-4);g.lineTo(29,9);g.lineTo(0,17);g.lineTo(-29,9);g.lineTo(-8,-4);g.closePath();g.fill();g.stroke();g.restore()}
+ }
+ const scene=t<5?['THE LAST THREAT','敵中枢、崩壊']:t<15?['RETURN VECTOR','全機、帰還航路へ']:t<23?['ASTERION / HOMECOMING','帰る場所が、まだここにある']:['SHIRAYUKI: LAST LIGHT','白雪 ― 最後の防衛線 ―'];
+ g.fillStyle='#061423c7';g.fillRect(0,82,W,80);g.fillStyle='#e8f6ff';g.textAlign='center';g.font='900 19px system-ui';g.fillText(scene[0],W/2,113);g.font='700 14px system-ui';g.fillStyle='#a7dce9';g.fillText(scene[1],W/2,142);
+ if(t>23){g.fillStyle='#09121be9';g.fillRect(0,694,W,78);g.fillStyle='#f1dfca';g.font='800 16px system-ui';g.fillText('MISSION COMPLETE',240,723);g.font='700 12px system-ui';g.fillText(`SCORE ${score.toLocaleString()}   /   ${D.label}`,240,751)}
+ g.restore()
+}
+const shiraOldRender=render;
+render=function(){if(mode==='ending')return renderShiraEnding();return shiraOldRender()};
+window.__SHIRAYUKI_V109={perf:()=>({...SHIRA109,playerBullets:pbullets.length,enemyBullets:ebullets.length,particles:particles.length}),ending:()=>({mode,time:shiraEndingTime}),testEnding:()=>{if(mode==='playing'){s=STAGES.length-1;const fake={r:75,x:240,y:175,maxhp:1};boss=fake;majorDead(fake)}},crew:window.__SHIRAYUKI_CREW_109};
+
 })();
 </script></body></html>

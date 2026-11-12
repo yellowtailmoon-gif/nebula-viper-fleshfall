@@ -92,9 +92,9 @@
 @media(max-width:350px){#comms{height:58px !important;min-height:58px !important;max-height:58px !important;flex-basis:58px !important;gap:5px !important}#comms .commAvatar{width:40px !important;height:40px !important;flex-basis:40px !important}#comms #commLine{font-size:10.5px !important}}
 @media(max-height:700px){#frame,#comms{width:min(calc(100vw - 12px),480px,calc((100dvh - 154px)*.6)) !important}}
 
-</style></head><body><div id="app"><div class="top"><div class="brand">NEBULA <b>VIPER</b> <span style="font-size:9px;letter-spacing:.04em">/ SHIRAYUKI — FRONTLINE ECLIPSE</span></div><div class="topbar"><button class="mini" id="soundBtn">♪ ON</button><button class="mini" id="pauseBtn">Ⅱ</button><button class="mini" id="fullBtn">⛶</button></div></div><div id="frame"><canvas id="game" width="480" height="800" aria-label="縦スクロール生体ホラーシューティング"></canvas><div id="banner"><b id="bannerTitle"></b><small id="bannerCaption"></small></div><div id="comms" aria-live="polite" aria-atomic="true"><div id="commAvatar" class="commAvatar" aria-hidden="true"></div><div class="commBody"><div class="commTop"><span class="commPulse">●</span> <span id="commFrom">ASTERION // COMMAND</span> <span class="commFreq">SECURE CHANNEL</span></div><div id="commLine">通信待機中</div></div></div><button id="skipLaunch" type="button">SKIP LAUNCH ▸</button><button id="bombBtn" type="button"><strong>◉</strong><span>BOMB ×2</span></button><div id="choiceTray"><div class="choiceHeader"><span>EVOLUTION // 1タップ即決・チップ自動合算</span><span id="choiceTime">7.0s</span></div><div class="choiceButtons" id="choiceButtons"></div></div><div id="overlay" class="overlay"><div class="panel"><div class="eyebrow" id="eyebrow">ASTERION // DEEP FRONTIER</div><h1 id="title">NEBULA VIPER<br><em>SHIRAYUKI</em></h1><p class="tag" id="tag">母艦アステリオン所属の新鋭迎撃機 <b>SHIRAYUKI</b> として出撃。<br>僚機支援・スコア分岐・通信演出を備えた、艦隊戦シネマティックSTG。写実寄りの機体描写・段階実装版。</p><div id="modes" class="modes"><button class="mode" data-diff="easy"><b>EASY</b><small>弾を撃ち落とせる入門</small></button><button class="mode sel" data-diff="normal"><b>NORMAL</b><small>標準・迎撃を使いこなせ</small></button><button class="mode" data-diff="hard"><b>HARD</b><small>高密度・高速度</small></button></div><select id="stageSelect" aria-label="開始ステージ"><option value="0">01 / 軌道防衛戦</option><option value="1">02 / 氷塔惑星</option><option value="2">03 / 廃棄衛星群</option><option value="3">04 / 神経樹海</option><option value="4">05 / 生体要塞</option></select><div id="result" hidden></div><button class="primary" id="startBtn">LAUNCH SHIRAYUKI ▶</button><button id="continueBtn">CONTINUE — 残機を回復して再突入</button><div class="explain" id="explain">スマホ：画面のどこでも長押し＋ドラッグで移動し、その間だけ射撃。離すと射撃停止。<br>FIREボタンは廃止。BOMBのみ右下。<br>PC：WASD・矢印で移動 / Space・Z・J長押しで射撃 / X・Bでボム / 1・2・3で選択<br>一部の敵弾のみ迎撃可能。硬質弾・虚数弾は回避優先。スコア分岐・僚機援護あり。支援通信は画面上の専用レールに表示。発艦会話・僚機会話は各ステージで変化。</div></div></div></div><div class="tip" id="hint">SCORE 000000 · SHIRAYUKI // 5 OPERATIONS · PHASE 11 / FINAL</div></div><script>
+</style></head><body><div id="app"><div class="top"><div class="brand">NEBULA <b>VIPER</b> <span style="font-size:9px;letter-spacing:.04em">/ SHIRAYUKI — ASTERION V10.0</span></div><div class="topbar"><button class="mini" id="soundBtn">♪ ON</button><button class="mini" id="pauseBtn">Ⅱ</button><button class="mini" id="fullBtn">⛶</button></div></div><div id="frame"><canvas id="game" width="480" height="800" aria-label="縦スクロール生体ホラーシューティング"></canvas><div id="banner"><b id="bannerTitle"></b><small id="bannerCaption"></small></div><div id="comms" aria-live="polite" aria-atomic="true"><div id="commAvatar" class="commAvatar" aria-hidden="true"></div><div class="commBody"><div class="commTop"><span class="commPulse">●</span> <span id="commFrom">ASTERION // COMMAND</span> <span class="commFreq">SECURE CHANNEL</span></div><div id="commLine">通信待機中</div></div></div><button id="skipLaunch" type="button">SKIP LAUNCH ▸</button><button id="bombBtn" type="button"><strong>◉</strong><span>BOMB ×2</span></button><div id="choiceTray"><div class="choiceHeader"><span>EVOLUTION // 1タップ即決・チップ自動合算</span><span id="choiceTime">7.0s</span></div><div class="choiceButtons" id="choiceButtons"></div></div><div id="overlay" class="overlay"><div class="panel"><div class="eyebrow" id="eyebrow">ASTERION // DEEP FRONTIER</div><h1 id="title">NEBULA VIPER<br><em>SHIRAYUKI</em></h1><p class="tag" id="tag">母艦アステリオン所属の新鋭迎撃機 <b>SHIRAYUKI</b> として出撃。<br>僚機支援・スコア分岐・通信演出を備えた、艦隊戦シネマティックSTG。新オーケストラ劇伴・電磁カタパルト・AEGIS防御を搭載。</p><div id="modes" class="modes"><button class="mode" data-diff="easy"><b>EASY</b><small>弾を撃ち落とせる入門</small></button><button class="mode sel" data-diff="normal"><b>NORMAL</b><small>標準・迎撃を使いこなせ</small></button><button class="mode" data-diff="hard"><b>HARD</b><small>高密度・高速度</small></button></div><select id="stageSelect" aria-label="開始ステージ"><option value="0">01 / 軌道防衛戦</option><option value="1">02 / 氷塔惑星</option><option value="2">03 / 廃棄衛星群</option><option value="3">04 / 神経樹海</option><option value="4">05 / 生体要塞</option></select><div id="result" hidden></div><button class="primary" id="startBtn">LAUNCH SHIRAYUKI ▶</button><button id="continueBtn">CONTINUE — 残機を回復して再突入</button><div class="explain" id="explain">スマホ：画面のどこでも長押し＋ドラッグで移動し、その間だけ射撃。離すと射撃停止。<br>FIREボタンは廃止。BOMBのみ右下。<br>PC：WASD・矢印で移動 / Space・Z・J長押しで射撃 / X・Bでボム / 1・2・3で選択<br>一部の敵弾のみ迎撃可能。AEGIS OPTIONは限定回数だけ防御、硬質弾・虚数弾は回避優先。スコア分岐・僚機援護あり。支援通信は画面上の専用レールに表示。発艦会話・僚機会話は各ステージで変化。</div></div></div></div><div class="tip" id="hint">SCORE 000000 · SHIRAYUKI // 5 OPERATIONS · V10.0</div></div><script src="./score/0_stage.js"></script><script src="./score/0_mid.js"></script><script src="./score/0_boss.js"></script><script src="./score/1_stage.js"></script><script src="./score/1_mid.js"></script><script src="./score/1_boss.js"></script><script src="./score/2_stage.js"></script><script src="./score/2_mid.js"></script><script src="./score/2_boss.js"></script><script src="./score/3_stage.js"></script><script src="./score/3_mid.js"></script><script src="./score/3_boss.js"></script><script src="./score/4_stage.js"></script><script src="./score/4_mid.js"></script><script src="./score/4_boss.js"></script><script>
 (()=>{'use strict';
-const GAME_VERSION='9.2-FINAL-REALISM';const W=480,H=800,TAU=Math.PI*2,$=id=>document.getElementById(id),cv=$('game'),g=cv.getContext('2d',{alpha:false}),frame=$('frame'),overlay=$('overlay'),title=$('title'),tag=$('tag'),eyebrow=$('eyebrow'),startBtn=$('startBtn'),continueBtn=$('continueBtn'),result=$('result'),modes=$('modes'),stageSelect=$('stageSelect'),hint=$('hint'),bombBtn=$('bombBtn'),fireBtn={classList:{add(){},remove(){},toggle(){}},querySelector(){return null;}},banner=$('banner'),bannerTitle=$('bannerTitle'),bannerCaption=$('bannerCaption'),choiceTray=$('choiceTray'),choiceButtons=$('choiceButtons'),choiceTime=$('choiceTime');
+const GAME_VERSION='10.0-ORCHESTRAL-EM-CATAPULT';const W=480,H=800,TAU=Math.PI*2,$=id=>document.getElementById(id),cv=$('game'),g=cv.getContext('2d',{alpha:false}),frame=$('frame'),overlay=$('overlay'),title=$('title'),tag=$('tag'),eyebrow=$('eyebrow'),startBtn=$('startBtn'),continueBtn=$('continueBtn'),result=$('result'),modes=$('modes'),stageSelect=$('stageSelect'),hint=$('hint'),bombBtn=$('bombBtn'),fireBtn={classList:{add(){},remove(){},toggle(){}},querySelector(){return null;}},banner=$('banner'),bannerTitle=$('bannerTitle'),bannerCaption=$('bannerCaption'),choiceTray=$('choiceTray'),choiceButtons=$('choiceButtons'),choiceTime=$('choiceTime');
 const clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),rand=(a,b)=>a+Math.random()*(b-a),rr=n=>Math.random()*n,lerp=(a,b,t)=>a+(b-a)*t,dist=(a,b,c,d)=>Math.hypot(a-c,b-d),dsq=(a,b,c,d)=>(a-c)**2+(b-d)**2;let now=0;const WEAPONS=['vulcan','laser','bubble','spread','rail','plasma','arc'];
 const STAGES=[
  {name:'軌道防衛戦',en:'ORBITAL DEFENSE',boss:'CERBERUS / 寄生軌道砲艦',mid:'TALON / 寄生迎撃艦',accent:'#49bcff',dark:'#020c1d',flesh:'#274869',bone:'#a9dcef',env:'orbit'},
@@ -105,7 +105,7 @@ const STAGES=[
 ];
 const DIFF={easy:{label:'EASY',hp:7,barrier:3,continue:4,bullet:.72,density:.72,dmg:.73,enemyHp:.79,drops:1.35},normal:{label:'NORMAL',hp:5,barrier:2,continue:3,bullet:.91,density:.90,dmg:.92,enemyHp:.94,drops:1.14},hard:{label:'HARD',hp:4,barrier:1,continue:2,bullet:1.10,density:1.08,dmg:1.10,enemyHp:1.12,drops:1.0}};
 const ENEMY={leech:{hp:24,r:17,speed:110,points:120},eye:{hp:45,r:23,speed:65,points:230},razor:{hp:33,r:19,speed:150,points:230},spore:{hp:52,r:26,speed:57,points:330},plate:{hp:120,r:31,speed:43,points:500},stalker:{hp:78,r:24,speed:104,points:420},shrike:{hp:130,r:28,speed:82,points:700},carrier:{hp:450,r:49,speed:38,points:1750},ace:{hp:390,r:31,speed:135,points:2800},harpoon:{hp:72,r:21,speed:142,points:420},turret:{hp:165,r:27,speed:36,points:510},mimic:{hp:90,r:21,speed:88,points:480},screamer:{hp:95,r:25,speed:93,points:510},warden:{hp:220,r:35,speed:42,points:790},urchin:{hp:125,r:24,speed:60,points:550},sentinel:{hp:150,r:27,speed:72,points:720}};
-const UPS={vulcan:{name:'VULCAN',detail:'多連装・連射',sym:'✶',color:'#fff1ad'},laser:{name:'LASER',detail:'青白い収束光',sym:'⌁',color:'#8be8f1'},bubble:{name:'BUBBLE',detail:'電磁泡の爆散',sym:'◉',color:'#9cc2ee'},spread:{name:'SPREAD',detail:'扇状プラズマ',sym:'✻',color:'#f7b266'},rail:{name:'RAILGUN',detail:'超高速貫通弾',sym:'➠',color:'#ffffff'},plasma:{name:'PLASMA',detail:'爆発性光弾',sym:'✷',color:'#ed7eff'},arc:{name:'ARC',detail:'連鎖放電砲',sym:'ϟ',color:'#b5ff80'},option:{name:'OPTION',detail:'随伴砲塔 +1',sym:'◇',color:'#f2cc94'},missile:{name:'MISSILE',detail:'追尾ミサイル +1',sym:'➶',color:'#ffc6aa'},drone:{name:'DRONE',detail:'独立支援機',sym:'⬟',color:'#b1e9ff'},barrier:{name:'BARRIER',detail:'バリア再生',sym:'⬡',color:'#8ce5c1'},bomb:{name:'BOMB',detail:'ボム +1',sym:'✹',color:'#e77e78'},repair:{name:'REPAIR',detail:'耐久力回復',sym:'✚',color:'#d6f0c1'},speed:{name:'VECTOR',detail:'移動加速',sym:'➤',color:'#e9bf82'},gravity:{name:'GRAVITY',detail:'重力渦ボム',sym:'◎',color:'#b4bafa'},stasis:{name:'STASIS',detail:'時間停止ボム',sym:'❄',color:'#a0d5ed'},nova:{name:'NOVA',detail:'超広域ボム',sym:'☀',color:'#ffdc91'},overdrive:{name:'OVERDRIVE',detail:'武器出力+12%',sym:'▲',color:'#ffb795'},rapid:{name:'RAPID',detail:'連射速度+12%',sym:'≋',color:'#fcf3b0'},focus:{name:'FOCUS',detail:'ボス弱点威力+',sym:'⊕',color:'#b0fcff'},twin:{name:'TWIN',detail:'両翼に副砲',sym:'⋈',color:'#b4defc'},shockwave:{name:'SHOCK',detail:'命中時の衝撃波',sym:'◎',color:'#bcacf9'},chain:{name:'CHAIN',detail:'電弧の追撃',sym:'ϟ',color:'#e3fc91'},pierce:{name:'PIERCE',detail:'弾が敵を貫通',sym:'⇡',color:'#edf5ff'},payload:{name:'PAYLOAD',detail:'ミサイル爆風強化',sym:'✳',color:'#ffc094'},echo:{name:'ECHO',detail:'残響追撃弾',sym:'↭',color:'#bdcaff'},ioncore:{name:'ION CORE',detail:'レーザー幅強化',sym:'⌘',color:'#a8fff1'},armor:{name:'ARMOR',detail:'最大耐久+1',sym:'▣',color:'#c4dad7'},regen:{name:'REGEN',detail:'装甲の自己修復',sym:'✚',color:'#c0ffb7'},magnet:{name:'MAGNET',detail:'回収範囲拡大',sym:'⊙',color:'#b3b9ff'},salvage:{name:'SALVAGE',detail:'敵の物資回収率+',sym:'✦',color:'#ffe4a2'},cloak:{name:'CLOAK',detail:'被弾後無敵延長',sym:'◌',color:'#a2defc'},warp:{name:'WARP',detail:'緊急回避機構',sym:'⇴',color:'#b7acff'},mines:{name:'MINES',detail:'機雷の追加投射',sym:'✹',color:'#f8a5ff'},homing:{name:'SEEKER',detail:'弾の誘導性を追加',sym:'⌖',color:'#b8f2d4'},thruster:{name:'THRUSTER',detail:'回避機動強化',sym:'⟫',color:'#fcdbb9'},reactor:{name:'REACTOR',detail:'副砲の出力増強',sym:'✺',color:'#fbe0bc'},phase:{name:'PHASE',detail:'各面開始時に装甲',sym:'◇',color:'#e8c7ff'}};
+const UPS={vulcan:{name:'VULCAN',detail:'多連装・連射',sym:'✶',color:'#fff1ad'},laser:{name:'LASER',detail:'青白い収束光',sym:'⌁',color:'#8be8f1'},bubble:{name:'BUBBLE',detail:'電磁泡の爆散',sym:'◉',color:'#9cc2ee'},spread:{name:'SPREAD',detail:'扇状プラズマ',sym:'✻',color:'#f7b266'},rail:{name:'RAILGUN',detail:'超高速貫通弾',sym:'➠',color:'#ffffff'},plasma:{name:'PLASMA',detail:'爆発性光弾',sym:'✷',color:'#ed7eff'},arc:{name:'ARC',detail:'連鎖放電砲',sym:'ϟ',color:'#b5ff80'},option:{name:'OPTION',detail:'随伴砲塔 +1',sym:'◇',color:'#f2cc94'},aegis:{name:'AEGIS OPTION',detail:'敵弾を限定迎撃する防御端末',sym:'⬡',color:'#8ddfff'},missile:{name:'MISSILE',detail:'追尾ミサイル +1',sym:'➶',color:'#ffc6aa'},drone:{name:'DRONE',detail:'独立支援機',sym:'⬟',color:'#b1e9ff'},barrier:{name:'BARRIER',detail:'バリア再生',sym:'⬡',color:'#8ce5c1'},bomb:{name:'BOMB',detail:'ボム +1',sym:'✹',color:'#e77e78'},repair:{name:'REPAIR',detail:'耐久力回復',sym:'✚',color:'#d6f0c1'},speed:{name:'VECTOR',detail:'移動加速',sym:'➤',color:'#e9bf82'},gravity:{name:'GRAVITY',detail:'重力渦ボム',sym:'◎',color:'#b4bafa'},stasis:{name:'STASIS',detail:'時間停止ボム',sym:'❄',color:'#a0d5ed'},nova:{name:'NOVA',detail:'超広域ボム',sym:'☀',color:'#ffdc91'},overdrive:{name:'OVERDRIVE',detail:'武器出力+12%',sym:'▲',color:'#ffb795'},rapid:{name:'RAPID',detail:'連射速度+12%',sym:'≋',color:'#fcf3b0'},focus:{name:'FOCUS',detail:'ボス弱点威力+',sym:'⊕',color:'#b0fcff'},twin:{name:'TWIN',detail:'両翼に副砲',sym:'⋈',color:'#b4defc'},shockwave:{name:'SHOCK',detail:'命中時の衝撃波',sym:'◎',color:'#bcacf9'},chain:{name:'CHAIN',detail:'電弧の追撃',sym:'ϟ',color:'#e3fc91'},pierce:{name:'PIERCE',detail:'弾が敵を貫通',sym:'⇡',color:'#edf5ff'},payload:{name:'PAYLOAD',detail:'ミサイル爆風強化',sym:'✳',color:'#ffc094'},echo:{name:'ECHO',detail:'残響追撃弾',sym:'↭',color:'#bdcaff'},ioncore:{name:'ION CORE',detail:'レーザー幅強化',sym:'⌘',color:'#a8fff1'},armor:{name:'ARMOR',detail:'最大耐久+1',sym:'▣',color:'#c4dad7'},regen:{name:'REGEN',detail:'装甲の自己修復',sym:'✚',color:'#c0ffb7'},magnet:{name:'MAGNET',detail:'回収範囲拡大',sym:'⊙',color:'#b3b9ff'},salvage:{name:'SALVAGE',detail:'敵の物資回収率+',sym:'✦',color:'#ffe4a2'},cloak:{name:'CLOAK',detail:'被弾後無敵延長',sym:'◌',color:'#a2defc'},warp:{name:'WARP',detail:'緊急回避機構',sym:'⇴',color:'#b7acff'},mines:{name:'MINES',detail:'機雷の追加投射',sym:'✹',color:'#f8a5ff'},homing:{name:'SEEKER',detail:'弾の誘導性を追加',sym:'⌖',color:'#b8f2d4'},thruster:{name:'THRUSTER',detail:'回避機動強化',sym:'⟫',color:'#fcdbb9'},reactor:{name:'REACTOR',detail:'副砲の出力増強',sym:'✺',color:'#fbe0bc'},phase:{name:'PHASE',detail:'各面開始時に装甲',sym:'◇',color:'#e8c7ff'}};
 const comms=$('comms'),commFrom=$('commFrom'),commLine=$('commLine'),commAvatar=$('commAvatar'),skipLaunch=$('skipLaunch');
 // Radio subtitles occupy a dedicated exterior deck, never the gameplay canvas.
 // Place a real, responsive comms rail in document flow above the battlefield.
@@ -740,19 +740,19 @@ function stageMessage(key,role,message,time=4.6,urgent=false){
 function finishLaunch(){
  if(!launchActive)return;
  launchActive=false;skipLaunch.classList.remove('show');frame.classList.remove('launch');launchTime=0;
- player.x=240;player.y=680;player.tx=240;player.ty=680;player.inv=Math.max(player.inv,3);
+ player.x=240;player.y=686;player.tx=240;player.ty=686;player.inv=Math.max(player.inv,3);
  safePeriod=Math.max(safePeriod,2.8);nextWave=.85;
  stageMessage('deployed','captain',MISSIONS[s][0],5.2,true);
  speak('SHIRAYUKI // SPEARHEAD INTERCEPTOR',240,390,'#b5f9ff',2.1,15);
 }
 
 function updateLaunch(dt){
- launchTime+=dt;const beats=[.4,1.7,3.1,4.5,5.45],script=LAUNCH_SCRIPT[s]||LAUNCH_SCRIPT[0];
+ launchTime+=dt;if(launchTime>3.08)scroll+=dt*(140+3100*Math.pow(clamp((launchTime-3.08)/2.6,0,1),2));const beats=[.4,1.7,3.1,4.5,5.45],script=LAUNCH_SCRIPT[s]||LAUNCH_SCRIPT[0];
  while(launchBeat+1<beats.length&&launchTime>=beats[launchBeat+1]){
   launchBeat++;
   const cue=script[launchBeat];
   if(cue)transmit(cue[0],cue[1],cue[2],cue[3]);
-  if(launchBeat===2)pickupSFX('launch');
+  if(launchBeat===2){pickupSFX('launch');SFX(60,.92,'sawtooth',.095,1700);SFX(132,.52,'triangle',.060,2900);shake=Math.max(shake,12);}
   if(launchBeat===3&&allies[0]) stageMessage('wingLaunch','wing1',allyRadio('join',`${allies[0].name}、先行して露払いに出る！ ついてこい！`),4.2,true);
  }
  if(launchTime>=6.6)finishLaunch();
@@ -831,6 +831,65 @@ function buildCarrierArt(){
  for(const x of [290,360,540,610]){
   const flame=c.createRadialGradient(x,1115,3,x,1165,78);flame.addColorStop(0,'#efffff');flame.addColorStop(.13,'#9af3ff');flame.addColorStop(.32,'#1982d7b7');flame.addColorStop(1,'#167ac500');c.fillStyle=flame;c.fillRect(x-90,1080,180,140);
  }
+
+ // Capital-ship manufacturing detail: separate light-catching armor facets,
+ // flight-deck clamp assemblies, hydraulic bays, safety decals, gun mounts.
+ for(const side of [-1,1]){
+   c.save();c.translate(450,0);c.scale(side,1);
+   for(let j=0;j<20;j++){
+     const y=322+j*37,x=111+(j%4)*17,ww=54+(j%3)*13;
+     const p=c.createLinearGradient(x,y,x+ww,y+21);
+     p.addColorStop(0,'#091723');p.addColorStop(.32,'#3b5668');p.addColorStop(.58,'#9ab5be');p.addColorStop(1,'#14293a');
+     poly([[x,y],[x+ww-8,y+3],[x+ww,y+14],[x+ww-18,y+26],[x+3,y+20]],p,'#91aeb877',1);
+     c.fillStyle='#020c17';c.fillRect(x+9,y+5,ww*.55,3);
+     c.fillStyle=j%5===0?'#fca876':'#70d7ff';c.fillRect(x+10,y+10,3,2);
+     c.fillStyle='#b3c9d0';c.fillRect(x+5,y+3,2,2);c.fillRect(x+ww-15,y+14,2,2);
+     if(j%3===1){c.strokeStyle='#8ca2ae88';c.lineWidth=1.2;c.beginPath();c.moveTo(x+ww*.3,y);c.lineTo(x+ww*.3+7,y+17);c.stroke()}
+   }
+   // Moving armored VLS missile doors and long recessed launch wells.
+   for(let j=0;j<9;j++){
+     let y=420+j*68,x=246+(j%2)*21;
+     c.fillStyle='#010913';c.fillRect(x-7,y-9,28,37);
+     let door=c.createLinearGradient(x-4,y,x+20,y+27);door.addColorStop(0,'#a0b5c2');door.addColorStop(.4,'#1a3349');door.addColorStop(1,'#526b76');
+     c.fillStyle=door;c.fillRect(x-4,y-6,23,32);
+     c.strokeStyle='#b7d8e688';c.strokeRect(x-4,y-6,23,32);
+     c.fillStyle='#051422';for(let k=0;k<3;k++)c.fillRect(x+k*7,y+5,5,10);
+   }
+   // Rangefinder stalk, radar lattice, capacitors and ship-wide piping.
+   c.strokeStyle='#9ac8d7';c.lineWidth=3;
+   c.beginPath();c.moveTo(208,328);c.lineTo(242,284);c.lineTo(246,214);c.stroke();
+   c.fillStyle='#bde8ef';c.beginPath();c.ellipse(245,218,20,7,-.24,0,TAU);c.fill();
+   c.fillStyle='#0d2d3c';c.beginPath();c.ellipse(245,218,16,5,-.24,0,TAU);c.fill();
+   c.strokeStyle='#568dad85';c.lineWidth=3;
+   for(let j=0;j<7;j++){const y=540+j*75; c.beginPath();c.moveTo(90,y);c.lineTo(165,y+16);c.lineTo(188,y+46);c.stroke()}
+   // Service stencils are minimalist stripes, no readable text in combat.
+   for(let j=0;j<4;j++){
+     c.fillStyle='#ffcf8d';c.fillRect(150+j*20,970,12,3);
+     c.fillStyle='#b1d9e5';c.fillRect(150+j*20,977,8,2);
+   }
+   c.restore();
+ }
+ // Massive induction-coil catapult: dense longitudinal magnetic guide rails.
+ for(const side of [-1,1]){
+   const ax=450+side*53;
+   c.strokeStyle='#030b16';c.lineWidth=14;c.beginPath();c.moveTo(450+side*32,288);c.lineTo(450+side*75,1091);c.stroke();
+   c.strokeStyle='#8cb7c7';c.lineWidth=5;c.beginPath();c.moveTo(450+side*32,288);c.lineTo(450+side*75,1091);c.stroke();
+   c.strokeStyle='#e7f8ff';c.lineWidth=1.25;c.beginPath();c.moveTo(450+side*30,288);c.lineTo(450+side*72,1091);c.stroke();
+   for(let k=0;k<32;k++){
+     const y=310+k*24, x=450+side*(32+(k*24/803)*43);
+     c.save();c.translate(x,y);c.rotate(side*.05);
+     const metal=c.createLinearGradient(-10,0,10,0);metal.addColorStop(0,'#152f43');metal.addColorStop(.44,'#adc7d3');metal.addColorStop(1,'#112a3d');
+     c.fillStyle=metal;c.fillRect(-10,-4,20,8);
+     c.fillStyle=k%5===0?'#e6faff':'#5dbadd';c.fillRect(-5,-2,8,3);
+     c.restore();
+   }
+ }
+ // Asterion class insignia: silhouette only, not words pasted into bitmap.
+ c.fillStyle='#cae0ed9a';c.beginPath();c.moveTo(450,615);c.lineTo(464,644);c.lineTo(450,635);c.lineTo(436,644);c.closePath();c.fill();
+ for(let i=0;i<240;i++){
+   const yy=260+R()*835,xx=450+(R()-.5)*(170+yy*.14);
+   c.fillStyle=i%5?'#00000022':'#f5ffff22';c.fillRect(xx,yy,1.1+R()*3,.8+R()*1.5);
+ }
  carrierArt=C;return carrierArt;
 }
 // Shared battle space: the carrier recedes while its cannons and wingmen keep fighting.
@@ -866,30 +925,74 @@ function cinematicBattle(t){
  g.restore();
 }
 function drawCarrierLaunch(){
- const t=launchTime;const ease=x=>x*x*(3-2*x);const depart=ease(clamp((t-1.75)/4.7,0,1));
- // Normal stage background is drawn before this function: no scene cut.
- const art=buildCarrierArt();cinematicBattle(t);
- // The detailed hull is still visible and continues to fire while it recedes.
- const hullY=205+depart*940,hullScale=1-depart*.25;
- g.save();g.translate(240,hullY+310);g.scale(hullScale,hullScale);g.shadowColor='#06101e';g.shadowBlur=22;g.drawImage(art,-228,-310,456,700);g.shadowBlur=0;
- // Stage-dependent damage: scars, burning turrets, venting air and missing armor.
- const wreck=s===0?0:s===1?2:s===2?4:s===3?7:11;
- for(let j=0;j<wreck;j++){let x=(((j*127+s*19)%320)-160),y=((j*83+150)%560)-210,sz=7+j%4*4;
-  g.fillStyle='#07080fdd';g.beginPath();g.ellipse(x,y,sz*1.6,sz*2.1,.42,0,TAU);g.fill();
-  const flare=g.createRadialGradient(x,y,0,x,y,sz*2.1);flare.addColorStop(0,'#ffedb9');flare.addColorStop(.34,'#ff8948c6');flare.addColorStop(1,'#ff4b2900');g.fillStyle=flare;g.fillRect(x-sz*2.1,y-sz*2.1,sz*4.2,sz*4.2);
-  g.fillStyle='#151a22a9';g.beginPath();g.ellipse(x+5,y-22-(Math.sin(t*2+j)*7),sz*1.4,sz*2.4,.18,0,TAU);g.fill();
+ const t=launchTime;
+ const charged=clamp((t-1.2)/1.65,0,1);
+ const elapsed=clamp((t-3.08)/2.55,0,1);
+ const propulsion=elapsed*elapsed*elapsed; // electromagnetic acceleration curve
+ const hullY=205+propulsion*1760;
+ const hullScale=1-propulsion*.66;
+ // Stay in one continuous battlefield: only the carrier/camera environment
+ // rushes aft while the SHIRAYUKI remains level in a pilot-tracking camera.
+ cinematicBattle(t);
+ const art=buildCarrierArt();
+ g.save();g.translate(240,hullY+310);g.scale(hullScale,hullScale);
+ g.shadowColor='#06101e';g.shadowBlur=22;g.drawImage(art,-228,-310,456,700);g.shadowBlur=0;
+ const wreck=s===0?0:s===1?2:s===2?5:s===3?8:12;
+ for(let j=0;j<wreck;j++){
+   const x=((j*127+s*19)%320)-160,y=((j*83+150)%560)-210,sz=7+j%4*4;
+   g.fillStyle='#060a13dd';g.beginPath();g.ellipse(x,y,sz*1.6,sz*2.1,.42,0,TAU);g.fill();
+   const f=g.createRadialGradient(x,y,0,x,y,sz*2.3);f.addColorStop(0,'#fff1c5');f.addColorStop(.28,'#ff945ad9');f.addColorStop(1,'#ff4b2900');g.fillStyle=f;g.fillRect(x-sz*3,y-sz*3,sz*6,sz*6);
+   g.fillStyle='#1d242d88';g.beginPath();g.ellipse(x+5,y-18-Math.sin(t*2+j)*6,sz*1.4,sz*2.4,.18,0,TAU);g.fill();
  }
  g.restore();
- // Player is locked straight, with rail clamps disengaging as thrust rises.
- const thrust=ease(clamp((t-1.8)/2.7,0,1)),settle=ease(clamp((t-4.45)/2.08,0,1));
- const py=691-thrust*210+settle*199;
- if(t>1.65){g.save();g.globalCompositeOperation='screen';let l=g.createLinearGradient(240,py+14,240,py+245);l.addColorStop(0,'#fff');l.addColorStop(.13,'#aeecffed');l.addColorStop(.42,'#2879ffaf');l.addColorStop(1,'#1b4eff00');g.fillStyle=l;g.beginPath();g.moveTo(234,py+10);g.lineTo(246,py+10);g.lineTo(270,py+220);g.lineTo(210,py+220);g.closePath();g.fill();g.restore()}
- g.save();g.translate(240,py);const zoom=1.08+Math.sin(thrust*Math.PI)*.3;g.scale(zoom,zoom);drawShip(0,0,t,false);g.restore();
- // Diegetic damage status on the game HUD; not an intrusive subtitle.
- g.save();g.fillStyle='#061521dc';g.fillRect(5,749,470,36);g.fillStyle='#a6dff5';g.font='800 10px ui-monospace,monospace';g.textAlign='left';const hullHP=Math.max(18,100-s*18);
- g.fillText(`ASTERION // HULL ${hullHP}%`,15,765);g.fillText(t<1.7?'SCRAMBLE ALERT':t<4.5?'CATAPULT HOT':'FIGHTER DEPLOYED',285,765);
- g.fillStyle='#234454';g.fillRect(15,773,210,4);g.fillStyle=hullHP<40?'#ff8a6c':'#78dfff';g.fillRect(15,773,210*hullHP/100,4);g.restore();
+ const py=686; // fixed camera-tracked ship position. NO upward/downward jump.
+ // Charge coils creep along magnetic rails; clamps hold the fighter stationary.
+ if(t>=1.45&&t<4.3){
+   g.save();g.globalCompositeOperation='screen';g.lineCap='round';
+   const alpha=(1-propulsion)*(.25+charged*.75);
+   for(let side of [-1,1]){
+     const x=240+side*24;
+     g.strokeStyle=`rgba(103,220,255,${alpha})`;g.lineWidth=2+charged*4;g.shadowColor='#8defff';g.shadowBlur=14+charged*10;
+     g.beginPath();g.moveTo(x-9,py+12);g.lineTo(x-13,py+135);g.stroke();
+     for(let k=0;k<12;k++){
+       const y=py+((now*96*charged+k*22)%175);
+       g.strokeStyle=`rgba(226,250,255,${alpha*(.65+.35*Math.sin(k*7+t*13)**2)})`;g.lineWidth=1.4;
+       g.beginPath();g.moveTo(x-5,y);g.lineTo(x+side*(10+charged*7),y-11);g.stroke();
+     }
+   }
+   g.restore();
+ }
+ // Hypervelocity camera streaks: screen fills with forward acceleration once launched.
+ if(elapsed>0){
+   g.save();g.globalCompositeOperation='screen';const amp=Math.min(1,propulsion*2.2);
+   for(let i=0;i<30;i++){
+     const x=((i*97+Math.sin(i*12.7)*43)%520)-20;
+     const phase=((now*(580+1400*propulsion)+i*79)%850)-80;
+     const len=20+propulsion*(180+i%5*45);
+     g.strokeStyle=i%4===0?`rgba(255,224,171,${amp*.55})`:`rgba(115,218,255,${amp*.50})`;
+     g.lineWidth=.8+(i%3)*.5;g.beginPath();g.moveTo(x,phase);g.lineTo(x+Math.sin(i)*11,phase+len);g.stroke();
+   }
+   g.restore();
+ }
+ // No drawn ship bounce: the vessel stays level and the carrier is hurled aft.
+ if(t>=3.1){
+   const thrust=clamp((t-3.1)/.85,0,1),len=78+240*thrust;
+   g.save();g.globalCompositeOperation='screen';
+   const f=g.createLinearGradient(240,py+20,240,py+len);f.addColorStop(0,'#ffffff');f.addColorStop(.09,'#e7faff');f.addColorStop(.26,'#76d0ffcb');f.addColorStop(1,'#0c50ff00');
+   g.fillStyle=f;g.beginPath();g.moveTo(231,py+12);g.lineTo(249,py+12);g.lineTo(262,py+len);g.lineTo(218,py+len);g.closePath();g.fill();g.restore();
+ }
+ drawShip(240,py,t,false);
+ // Diegetic damage and electromagnetic-catapult charge diagnostic.
+ const hullHP=Math.max(18,100-s*18);
+ g.save();g.fillStyle='#061521dc';g.fillRect(5,747,470,39);
+ g.fillStyle='#bde9fa';g.font='800 10px ui-monospace,monospace';g.textAlign='left';
+ g.fillText(`ASTERION // HULL ${hullHP}%`,15,765);
+ g.fillText(t<2.4?'MAGNETIC LOCK':t<3.1?'CAPACITOR 100%':t<5.3?'EM RAIL / MACH ++':'FIGHTER SEPARATED',275,765);
+ g.fillStyle='#234454';g.fillRect(15,774,210,4);
+ g.fillStyle=hullHP<40?'#ff8a6c':'#78dfff';g.fillRect(15,774,210*hullHP/100,4);
+ g.restore();
 }
+
 function speak(t,x=W/2,y=H*.28,color='#f6c2b7',time=1.8,size=16){texts.push({t,x,y,color,time,max:time,size});if(texts.length>20)texts.shift()}
 function bannerShow(label,cap,time=2.5){bannerTitle.textContent=label;bannerCaption.textContent=cap;bannerT=time;banner.classList.add('show')}
 // STAGE DIRECTOR: alternating pressure, silence, narrative, set pieces and climaxes.
@@ -962,8 +1065,8 @@ function directorTick(dt){
   const base=[9.5,5.5,2.6,5.3,9,6,3.6,2.5,9,3.4][idx];nextWave=base/(D.density*.83+.2)*(0.78+Math.random()*.40);
  }
 }
-function resetStage(index,keep=false){s=index;stageTime=0;scroll=0;wave=0;nextWave=2;midTriggered=false;midBeaten=false;bossTriggered=false;bossStageElapsed=0;gravityTimer=0;stasisTimer=0;rescueCooldown=9+Math.random()*6;rescueDistress=0;rescueSpawned=0;enemies=[];ebullets=[];pbullets=[];pickups=[];particles=[];rings=[];texts=[];beams=[];bossCues=[];hazards=[];mid=null;boss=null;upChoice=null;upQueue=0;laserFX=0;shake=0;flash=0;choiceTray.classList.remove('show');commFlags=new Set();commCooldown=0;commTime=0;criticalMessage=false;commQueue=[];actId=-1;eventFired=new Set();musicEnergy=.22;hazardClock=2.8;comms.classList.remove('show');launchActive=true;launchTime=0;launchBeat=-1;frame.classList.add('launch');skipLaunch.classList.add('show');safePeriod=2.3;fireHeld=false;firePointer=null;branchEvent=-1;branchTag='';bgCache[s]||makeBg(s);if(!keep||!player){player={x:240,y:680,tx:240,ty:680,hp:D.hp,maxhp:D.hp,barrier:D.barrier,inv:2.7,weapon:'vulcan',level:1,option:0,missile:0,bomb:2,bombMode:'nova',speed:1,fireClock:0,missileClock:.3,optionClock:0,weaponFlash:0,continues:D.continue,overdrive:0,rapid:0,focus:0,twin:0,shockwave:0,chain:0,pierce:0,payload:0,echo:0,ioncore:0,armor:0,regen:0,magnet:0,salvage:0,cloak:0,warp:0,mines:0,homing:0,thruster:0,reactor:0,phase:0,drone:0,regenClock:0,mineClock:1.6,droneClock:0,echoClock:0}}else{player.x=240;player.y=680;player.tx=240;player.ty=680;player.inv=3;player.barrier=Math.max(player.barrier,1+player.phase);player.bomb=Math.min(4,player.bomb+1)} spawnAllies(s<2?1:s<6?2:3);
- if(!keep&&s>0){player.level=2;player.option=1;player.missile=1;player.barrier+=1;player.bomb=3;}bannerShow(`AREA ${String(s+1).padStart(2,'0')} // ${theme().name}`,'SHIRAYUKI // TACTICAL DEPLOY',1.4);musicStart(false);hint.textContent=`${DIFF[diff].label} · ${theme().name} · SHIRAYUKI READY`;refreshBomb()}
+function resetStage(index,keep=false){s=index;stageTime=0;scroll=0;wave=0;nextWave=2;midTriggered=false;midBeaten=false;bossTriggered=false;bossStageElapsed=0;gravityTimer=0;stasisTimer=0;rescueCooldown=9+Math.random()*6;rescueDistress=0;rescueSpawned=0;enemies=[];ebullets=[];pbullets=[];pickups=[];particles=[];rings=[];texts=[];beams=[];bossCues=[];hazards=[];mid=null;boss=null;upChoice=null;upQueue=0;laserFX=0;shake=0;flash=0;choiceTray.classList.remove('show');commFlags=new Set();commCooldown=0;commTime=0;criticalMessage=false;commQueue=[];actId=-1;eventFired=new Set();musicEnergy=.22;hazardClock=2.8;comms.classList.remove('show');launchActive=true;launchTime=0;launchBeat=-1;frame.classList.add('launch');skipLaunch.classList.add('show');safePeriod=2.3;fireHeld=false;firePointer=null;branchEvent=-1;branchTag='';bgCache[s]||makeBg(s);if(!keep||!player){player={x:240,y:680,tx:240,ty:680,hp:D.hp,maxhp:D.hp,barrier:D.barrier,inv:2.7,weapon:'vulcan',level:1,option:0,aegis:0,aegisCharge:0,aegisCooldown:0,missile:0,bomb:2,bombMode:'nova',speed:1,fireClock:0,missileClock:.3,optionClock:0,weaponFlash:0,continues:D.continue,overdrive:0,rapid:0,focus:0,twin:0,shockwave:0,chain:0,pierce:0,payload:0,echo:0,ioncore:0,armor:0,regen:0,magnet:0,salvage:0,cloak:0,warp:0,mines:0,homing:0,thruster:0,reactor:0,phase:0,drone:0,regenClock:0,mineClock:1.6,droneClock:0,echoClock:0}}else{player.x=240;player.y=680;player.tx=240;player.ty=680;player.inv=3;player.barrier=Math.max(player.barrier,1+player.phase);player.bomb=Math.min(4,player.bomb+1);player.aegisCharge=Math.min(player.aegis||0,player.aegisCharge||0);player.aegisCooldown=Math.max(0,player.aegisCooldown||0);} spawnAllies(s<2?1:s<6?2:3);
+ if(!keep&&s>0){player.level=2;player.option=1;player.missile=1;player.barrier+=1;player.bomb=3;}bannerShow(`AREA ${String(s+1).padStart(2,'0')} // ${theme().name}`,'SHIRAYUKI // ELECTROMAGNETIC LAUNCH',1.4);musicStart(false);hint.textContent=`${DIFF[diff].label} · ${theme().name} · SHIRAYUKI READY`;refreshBomb()}
 function refreshBomb(){bombBtn.querySelector('strong').textContent=player?.bombMode==='gravity'?'◎':player?.bombMode==='stasis'?'❄':'✹';bombBtn.querySelector('span').textContent=`${player?.bombMode==='gravity'?'GRAVITY':player?.bombMode==='stasis'?'STASIS':'NOVA'} ×${player?.bomb??0}`;bombBtn.disabled=!player||player.bomb<=0}
 function startGame(){D=DIFF[diff];score=0;clock=0;mode='playing';drag=null;overlay.classList.add('hidden');modes.style.display='none';resetStage(+stageSelect.value,false);bombBtn.classList.add('active');SFX(180,.4,'sawtooth',.08,360)}
 function showMenu(type){mode=type;launchActive=false;frame.classList.remove('launch');skipLaunch.classList.remove('show');musicStop();fireHeld=false;firePointer=null;overlay.classList.remove('hidden');bombBtn.classList.remove('active');choiceTray.classList.remove('show');result.hidden=true;continueBtn.style.display='none';modes.style.display=type==='menu'?'grid':'none';stageSelect.hidden=type!=='menu'&&type!=='over'&&type!=='victory';
@@ -1025,7 +1128,7 @@ function useBomb(){if(mode!=='playing'||!player||player.bomb<=0)return;
 
 function choicesPool(){
  let pool=Object.keys(UPS).filter(id=>{
-  if(id==='option'&&player.option>=3)return false;if(id==='drone'&&player.drone>=2)return false;
+  if(id==='option'&&player.option>=3)return false;if(id==='aegis'&&player.aegis>=2)return false;if(id==='drone'&&player.drone>=2)return false;
   if(id==='missile'&&player.missile>=3)return false;if(id==='barrier'&&player.barrier>=5)return false;
   if(id==='bomb'&&player.bomb>=6)return false;if(id==='repair'&&player.hp>=player.maxhp)return false;
   if(id==='speed'&&player.speed>=1.36)return false;
@@ -1037,7 +1140,7 @@ function choicesPool(){
  });
  // Shuffle with a seeded-ish Fisher-Yates; no undefined item may ever enter the UI.
  for(let i=pool.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
- const primary=pool.filter(id=>WEAPONS.includes(id)||['option','missile','drone','twin','barrier'].includes(id));
+ const primary=pool.filter(id=>WEAPONS.includes(id)||['option','aegis','missile','drone','twin','barrier'].includes(id));
  if(primary.length){let preferred=primary[Math.floor(Math.random()*primary.length)];pool=pool.filter(id=>id!==preferred);pool.unshift(preferred)}
  return pool.slice(0,3);
 }
@@ -1063,6 +1166,7 @@ function triggerChoice(){
 function applyPower(id){
  if(WEAPONS.includes(id)){player.level=player.weapon===id?Math.min(4,player.level+1):2;player.weapon=id}
  else if(id==='option')player.option=Math.min(3,player.option+1);
+ else if(id==='aegis'){player.aegis=Math.min(2,(player.aegis||0)+1);player.aegisCharge=player.aegis;player.aegisCooldown=0;}
  else if(id==='drone')player.drone=Math.min(2,player.drone+1);
  else if(id==='missile')player.missile=Math.min(3,player.missile+1);
  else if(id==='barrier')player.barrier=Math.min(5,player.barrier+1);
@@ -1391,6 +1495,7 @@ function optionPos(i){let count=player.option,offset=(i-(count-1)/2)*65;return {
 function isFiring(){return mode==='playing'&&(fireHeld||drag!==null||KEYS.has('Space')||KEYS.has('KeyZ')||KEYS.has('KeyJ'))}
 function updatePlayerGuns(dt){
  player.fireClock-=dt;player.missileClock-=dt;player.optionClock-=dt;player.droneClock-=dt;player.mineClock-=dt;player.regenClock+=dt;
+ if(player.aegis>0){player.aegisCooldown=Math.max(0,(player.aegisCooldown||0)-dt);if(player.aegisCharge<player.aegis&&player.aegisCooldown<=0){player.aegisCharge++;player.aegisCooldown=7.2-(player.aegis-1)*1.0;}}
  player.weaponFlash=Math.max(0,player.weaponFlash-dt);
  if(isFiring()&&player.fireClock<=0)firePlayer();else if(!isFiring())player.fireClock=Math.max(0,player.fireClock);
  if(isFiring()&&player.option>0&&player.optionClock<=0){for(let i=0;i<player.option;i++){let q=optionPos(i);addShot(q.x,q.y-17,0,-710,4.5+player.reactor*1.6,'option',3.1,{homing:player.homing>0})}player.optionClock=.24/(1+player.reactor*.13)}
@@ -1442,8 +1547,18 @@ function updatePlayerShots(dt){
   if(consumed||p.life<=0||p.y<-40||p.y>H+45||p.x<-40||p.x>W+40)pbullets.splice(i,1)
  }
 }
-function updateEnemyShots(dt){for(let i=ebullets.length-1;i>=0;i--){let b=ebullets[i];b.age+=dt;b.life-=dt;b.x+=b.vx*dt;b.y+=b.vy*dt;if(b.age>.08&&dsq(b.x,b.y,player.x,player.y)<(b.r+10)**2){receiveDamage();ebullets.splice(i,1);continue}for(const a of allies){if(a.dead||a.inv>0)continue; if(b.age>.08&&dsq(b.x,b.y,a.x,a.y)<(b.r+9)**2){damageAlly(a); ebullets.splice(i,1); b=null; break;}} if(!b)continue; if(b.life<0||b.y>H+55||b.y< -100||b.x<-60||b.x>W+60)ebullets.splice(i,1)}}
-function updateBeams(dt){for(let i=beams.length-1;i>=0;i--){let b=beams[i];b.time+=dt;if(b.time>b.warn&&b.time<b.warn+b.live&&!b.hit&&Math.abs(player.x-b.x)<b.width*.5+10){b.hit=true;receiveDamage()}if(b.time>b.warn+b.live)beams.splice(i,1)}}
+function aegisIntercept(b){
+ if(!player||!player.aegis||!player.aegisCharge)return false;
+ if(b.kind==='void'||b.kind==='crystal'||b.kind==='bone')return false; // still have dangerous patterns to dodge
+ if(dsq(b.x,b.y,player.x,player.y)>(b.r+24)**2)return false;
+ player.aegisCharge=Math.max(0,player.aegisCharge-1);
+ player.aegisCooldown=7.2-(player.aegis-1)*1.0;
+ ring(player.x,player.y,'#8defff',62,400);burst(b.x,b.y,'#d8faff',5,90);score+=20;
+ if(sound)SFX(680,.13,'triangle',.028,1350);
+ return true;
+}
+function updateEnemyShots(dt){for(let i=ebullets.length-1;i>=0;i--){let b=ebullets[i];b.age+=dt;b.life-=dt;b.x+=b.vx*dt;b.y+=b.vy*dt;if(b.age>.08&&aegisIntercept(b)){ebullets.splice(i,1);continue}if(b.age>.08&&dsq(b.x,b.y,player.x,player.y)<(b.r+10)**2){receiveDamage();ebullets.splice(i,1);continue}for(const a of allies){if(a.dead||a.inv>0)continue; if(b.age>.08&&dsq(b.x,b.y,a.x,a.y)<(b.r+9)**2){damageAlly(a); ebullets.splice(i,1); b=null; break;}} if(!b)continue; if(b.life<0||b.y>H+55||b.y< -100||b.x<-60||b.x>W+60)ebullets.splice(i,1)}}
+function updateBeams(dt){for(let i=beams.length-1;i>=0;i--){let b=beams[i];b.time+=dt;if(b.time>b.warn&&b.time<b.warn+b.live&&!b.hit&&Math.abs(player.x-b.x)<b.width*.5+10){b.hit=true;if(!(player?.aegisCharge>0&&player.aegis>1&&aegisIntercept({x:player.x,y:player.y,r:12,kind:'ion'})))receiveDamage()}if(b.time>b.warn+b.live)beams.splice(i,1)}}
 function updatePickups(dt){for(let i=pickups.length-1;i>=0;i--){let p=pickups[i];p.t+=dt;p.life-=dt;p.y+=p.vy*dt;let d=dist(p.x,p.y,player.x,player.y);const reach=(p.rescue?150:100)+player.magnet*80;if(d<reach){p.x+=(player.x-p.x)*dt*(3.7+player.magnet);p.y+=(player.y-p.y)*dt*(3.7+player.magnet)}if(d<26){pickups.splice(i,1);getPickup(p)}else if(p.y>850||p.life<0)pickups.splice(i,1)}}
 function updateVisual(dt){for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.975;p.vy*=.975;p.life-=dt;if(p.life<0)particles.splice(i,1)}for(let i=rings.length-1;i>=0;i--){let q=rings[i];q.r+=q.spd*dt;if(q.r>q.max)rings.splice(i,1)}for(let i=texts.length-1;i>=0;i--){let t=texts[i];t.y-=dt*11;t.time-=dt;if(t.time<=0)texts.splice(i,1)}bannerT-=dt;if(bannerT<=0)banner.classList.remove('show');flash=Math.max(0,flash-dt*1.8);shake=Math.max(0,shake-dt*29);killChainT=Math.max(0,killChainT-dt);if(!killChainT)killChain=0;laserFX=Math.max(0,laserFX-dt)}
 function playerMove(dt){let dx=0,dy=0;if(KEYS.has('ArrowLeft')||KEYS.has('KeyA'))dx--;if(KEYS.has('ArrowRight')||KEYS.has('KeyD'))dx++;if(KEYS.has('ArrowUp')||KEYS.has('KeyW'))dy--;if(KEYS.has('ArrowDown')||KEYS.has('KeyS'))dy++;if(dx||dy){let norm=Math.hypot(dx,dy);player.tx+=dx/norm*330*player.speed*(1+player.thruster*.14)*dt;player.ty+=dy/norm*330*player.speed*(1+player.thruster*.14)*dt}else if(!drag){player.tx=player.x;player.ty=player.y}player.tx=clamp(player.tx,27,453);player.ty=clamp(player.ty,116,762);let smooth=1-Math.exp(-dt*(17+player.thruster*3));player.x=lerp(player.x,player.tx,smooth);player.y=lerp(player.y,player.ty,smooth);player.inv=Math.max(0,player.inv-dt)}
@@ -1452,34 +1567,57 @@ function spawnAllies(count=1){const roster=['FUBUKI-2','KAGEROU-3','HAYATE-4'];a
 function aliveAllies(){return allies.filter(a=>!a.dead&&a.state!=='gone')}
 function reinforceAlly(){if(allies.length>=3)return;const idx=allies.length;const name=['FUBUKI-2','KAGEROU-3','HAYATE-4'][idx];allies.push({name,role:'wing'+(idx+1),x:idx%2?520:-40,y:520+idx*30,maxhp:5+Math.floor(s/4),hp:5+Math.floor(s/4),inv:3,fireClock:.3,index:idx,state:'joining',retreating:false,dead:false,mode:'intercept',attackT:0,phase:rr(TAU),anchorX:76+idx*170,anchorY:598+idx*24});stageMessage('allyJoin'+idx,'wing'+(idx+1),`${name}、`+allyRadio('join','援護に入る！'),4.4,true)}
 function allyTarget(a){let tx=a.anchorX,ty=a.anchorY+Math.sin(now*1.8+a.phase)*44;const frontBias=Math.sin(now*.8+a.index)*64; if(a.state==='joining'){tx=a.anchorX;ty=545+a.index*24;}const target=nearestTarget(a.x,a.y,330);if(target&&!a.retreating){a.attackT=Math.min(1.6,a.attackT+.9);const sideOffset=(a.index-1)*52;tx=lerp(tx,target.x+sideOffset,0.48);ty=lerp(ty,Math.min(target.y+95+(a.index-1)*22,520),0.52);}else a.attackT=Math.max(0,a.attackT-.6); tx+=Math.sin(now*1.1+a.phase)*32 + frontBias*(a.index===1?0.7:1.0); return {x:clamp(tx,34,446),y:clamp(ty,170,730)}}
-function updateAllies(dt){if(!player||!allies.length)return;for(const a of allies){if(a.dead||a.state==='gone')continue;if(a.retreating){a.x+=((a.index%2)?1:-1)*145*dt;a.y-=40*dt;if(a.x<-70||a.x>550||a.y>860||a.y<-80){a.state='gone';a.dead=true;}continue;}const tgt=allyTarget(a);a.x=lerp(a.x,tgt.x,Math.min(1,dt*2.6));a.y=lerp(a.y,tgt.y,Math.min(1,dt*2.5));a.inv=Math.max(0,a.inv-dt);if(a.state==='joining'&&dist(a.x,a.y,tgt.x,tgt.y)<24)a.state='cover';a.fireClock-=dt;const active = mode==='playing'&&!launchActive&&(isFiring()||nearestTarget(a.x,a.y,260));if(active&&a.fireClock<=0){const tgtEnemy=nearestTarget(a.x,a.y,380); if(tgtEnemy){let ang=Math.atan2(tgtEnemy.y-a.y,tgtEnemy.x-a.x); addShot(a.x,a.y-14,Math.cos(ang)*540,Math.sin(ang)*540,5.5+Math.min(2,s*.15),'option',3.2,{homing:true}); if((s>=2&&Math.random()<.18)||a.attackT>.8) addShot(a.x,a.y-6,Math.cos(ang)*250,Math.sin(ang)*250,12.5,'missile',5,{trail:0,splash:16}); } else { addShot(a.x,a.y-18,rand(-55,55),-760,4.9+Math.min(2,s*.15),'option',3.4,{homing:player.homing>0}); } a.fireClock=.24+Math.random()*.18-(a.attackT*.05);} }}
+function updateAllies(dt){
+ if(!player||!allies.length)return;
+ for(const a of allies){
+  if(a.dead||a.state==='gone')continue;
+  if(a.retreating){a.x+=((a.index%2)?1:-1)*145*dt;a.y-=40*dt;if(a.x<-70||a.x>550||a.y>860||a.y<-80){a.state='gone';a.dead=true;}continue;}
+  const tgt=allyTarget(a);a.x=lerp(a.x,tgt.x,Math.min(1,dt*2.6));a.y=lerp(a.y,tgt.y,Math.min(1,dt*2.5));
+  a.inv=Math.max(0,a.inv-dt);if(a.state==='joining'&&dist(a.x,a.y,tgt.x,tgt.y)<24)a.state='cover';
+  a.fireClock-=dt;
+  const hostile=nearestTarget(a.x,a.y,410);
+  if(mode!=='playing'||launchActive||(!isFiring()&&!hostile)||a.fireClock>0)continue;
+  const angle=hostile?Math.atan2(hostile.y-a.y,hostile.x-a.x):-Math.PI/2;
+  const ax=Math.cos(angle),ay=Math.sin(angle);
+  if(a.index===0){ // FUBUKI-2 — precise dual rapid-fire autocannon
+    for(const side of [-1,1])addShot(a.x+side*10,a.y-16,ax*780+side*7,ay*780,3.45+s*.12,'option',2.5,{homing:false});
+    a.fireClock=.22;
+  }else if(a.index===1){ // KAGEROU-3 — slower tracked missile with terminal splash
+    addShot(a.x+((Math.floor(now*3)%2)?-12:12),a.y-13,ax*240,ay*240,16+s*.5,'missile',5.8,{homing:true,trail:0,splash:26});
+    a.fireClock=.76;
+  }else{ // HAYATE-4 — narrow, armor-piercing railgun
+    addShot(a.x,a.y-21,ax*1150,ay*1150,12.4+s*.45,'rail',2.6,{pierce:2,homing:false});
+    a.fireClock=.59;
+  }
+ }
+}
 function damageAlly(a){if(!a||a.dead||a.inv>0)return;a.hp--;a.inv=.55;burst(a.x,a.y,'#ffcabd',4,80);ring(a.x,a.y,'#9ddfff',18,250);pickupSFX('warning');if(a.hp<=0){a.dead=true;a.state='gone';burst(a.x,a.y,'#f7bb96',16,210);ring(a.x,a.y,'#ffb186',95,240);stageMessage('allyLost'+a.name,'control',`${a.name}の信号が消失……！ SHIRAYUKI、戦線を維持して！`,4.8,true);return;}if(a.hp<=1&&!a.retreating){a.retreating=true;stageMessage('allyRetreat'+a.name,a.role,`${a.name} `+allyRadio('retreat','被弾多数！ 離脱する、後は頼んだ！'),4.0,true)}}
 function branchDirector(){if(branchEvent<0&&stageTime>27){const target=(s+1)*2600;if(score>target*1.2){branchTag='heroic';stageMessage('scoreHigh','tactics','戦果突出！ 敵ACEが進路に急接近、追加支援も向かう！',4.7,true);spawnAce();reinforceAlly();score+=800;}else if(score<target*.58){branchTag='critical';stageMessage('scoreLow','captain','苦戦中を確認。敵弾消去カプセルを投下！ 僚機も向かわせる！',4.8,true);makePickup(clamp(player.x,65,415),-26,'cleanse');reinforceAlly();}else{branchTag='steady';stageMessage('scoreMid','control','戦況は拮抗。作戦はプラン通り進行中。',3.8,false);}branchEvent=1;}if(branchEvent===1&&stageTime>86){if(branchTag==='heroic'&&!eventFired.has('heroicSupport')){eventFired.add('heroicSupport');stageMessage('heroic2','wing1',allyRadio('heroic','前方制圧完了！ SHIRAYUKI、ボスまで一直線だ！'),4.2,true);makePickup(clamp(player.x,70,410),-30,'repair');}if(branchTag==='critical'&&!eventFired.has('criticalSupport')){eventFired.add('criticalSupport');stageMessage('critical2','engineer','緊急救援！ クリアランスを投下する、態勢を立て直して！',4.6,true);makePickup(clamp(player.x,70,410),-30,'cleanse');}branchEvent=2;}}
 // Squadron craft: three different aerodynamic archetypes (NOT scaled SHIRAYUKI).
 function drawEscort(a){
- if(!a)return;const id=a.index||0;
- g.save();g.translate(a.x,a.y);g.rotate(Math.sin(now*1.3+a.phase)*.12);g.scale(.77,.77);
+ if(!a)return;
+ const id=a.index||0;
+ g.save();g.translate(a.x,a.y);g.rotate(Math.sin(now*1.3+a.phase)*.055);
  if(a.inv<=0||Math.floor(now*12)%2===0){
-  const color=['#89d5ff','#9ab5ff','#9de8d0'][id]||'#89d5ff';const dark=['#162739','#22324a','#153037'][id]||'#162739';
-  for(const dx of id===1?[-16,16]:[-10,10]){let jet=g.createLinearGradient(dx,11,dx,45);jet.addColorStop(0,'#fff');jet.addColorStop(.25,color);jet.addColorStop(1,'#3068ff00');g.fillStyle=jet;g.fillRect(dx-2,12,4,32)}
-  g.fillStyle=dark;g.strokeStyle=color;g.lineWidth=1.5;g.shadowColor=color;g.shadowBlur=7;
-  g.beginPath();
-  if(id===0){ // FUBUKI: narrow twin-boom interceptor, swept shoulder wings.
-   g.moveTo(0,-30);g.lineTo(6,-15);g.lineTo(13,-12);g.lineTo(37,9);g.lineTo(15,6);g.lineTo(12,22);g.lineTo(5,16);g.lineTo(0,28);g.lineTo(-5,16);g.lineTo(-12,22);g.lineTo(-15,6);g.lineTo(-37,9);g.lineTo(-13,-12);g.lineTo(-6,-15);
-  }else if(id===1){ // KAGEROU: broad flying wing with dual split nacelles.
-   g.moveTo(0,-24);g.lineTo(13,-18);g.lineTo(28,-4);g.lineTo(43,10);g.lineTo(14,5);g.lineTo(25,23);g.lineTo(12,16);g.lineTo(0,20);g.lineTo(-12,16);g.lineTo(-25,23);g.lineTo(-14,5);g.lineTo(-43,10);g.lineTo(-28,-4);g.lineTo(-13,-18);
-  }else{ // HAYATE: slender two-cannon patrol craft, forked front.
-   g.moveTo(-12,-35);g.lineTo(-4,-19);g.lineTo(0,-7);g.lineTo(4,-19);g.lineTo(12,-35);g.lineTo(19,-8);g.lineTo(30,13);g.lineTo(10,10);g.lineTo(0,25);g.lineTo(-10,10);g.lineTo(-30,13);g.lineTo(-19,-8);
-  }
-  g.closePath();g.fill();g.stroke();g.shadowBlur=0;
-  g.fillStyle='#eff8ff';g.beginPath();g.moveTo(0,-18);g.lineTo(4,-7);g.lineTo(3,14);g.lineTo(0,19);g.lineTo(-3,14);g.lineTo(-4,-7);g.closePath();g.fill();g.strokeStyle='#ffffff88';g.lineWidth=.7;g.beginPath();g.moveTo(0,-17);g.lineTo(0,18);g.moveTo(-7,3);g.lineTo(7,3);g.stroke();
-  g.fillStyle='#13364f';g.beginPath();g.ellipse(0,-11,3.5,8,0,0,TAU);g.fill();
-  g.strokeStyle='#d0e8ff88';g.lineWidth=.8;
-  for(let j=0;j<3;j++){const u=12+j*4;g.beginPath();g.moveTo(-u,j*3);g.lineTo(-u+5,j*3+6);g.moveTo(u,j*3);g.lineTo(u-5,j*3+6);g.stroke()}
-  g.fillStyle=color;g.fillRect(-1,-25,2,5);g.fillRect(-2,17,4,3);
-  for(const x of id===1?[-30,30]:[-16,16]){g.fillStyle='#d2eaff';g.fillRect(x-1,8,2,7)}
+   g.save();
+   g.filter=['saturate(1.0) brightness(.95)','hue-rotate(15deg) saturate(.92) brightness(.97)','hue-rotate(-12deg) saturate(1.08) brightness(1.0)'][id]||'none';
+   drawShip(0,0,now,true); // identical family fuselage and wing shape
+   g.filter='none';
+   const stripe=['#89dfff','#b8c8ff','#90efca'][id]||'#8ddfff';
+   // FUBUKI: small canard tips, KAGEROU: dual missile pylons,
+   // HAYATE: slim sensor spike, all recognizably friendly aircraft.
+   g.strokeStyle=stripe;g.lineWidth=1.1;
+   if(id===0){g.beginPath();g.moveTo(-18,-2);g.lineTo(-25,-8);g.moveTo(18,-2);g.lineTo(25,-8);g.stroke();}
+   else if(id===1){for(const side of [-1,1]){g.fillStyle='#a6bfd1';g.fillRect(side*22-2,7,4,14);g.fillStyle='#e1eefa';g.fillRect(side*22-1,4,2,5);}}
+   else {g.beginPath();g.moveTo(0,-29);g.lineTo(0,-37);g.moveTo(-14,7);g.lineTo(-20,13);g.moveTo(14,7);g.lineTo(20,13);g.stroke();}
+   g.fillStyle=stripe;g.fillRect(-4,15,8,1.5);
+   g.restore();
  }
- g.restore();g.save();g.fillStyle='#0a1422d8';g.fillRect(a.x-24,a.y+24,48,4);g.fillStyle=a.hp>2?'#82e7ff':a.hp>1?'#ffe0a3':'#ff978b';g.fillRect(a.x-24,a.y+24,48*Math.max(0,a.hp)/Math.max(1,a.maxhp),4);g.fillStyle='#dcefff';g.font='700 8px system-ui';g.textAlign='center';g.fillText(a.name+(a.retreating?' RET':''),a.x,a.y+38);g.restore();
+ g.restore();
+ g.save();g.fillStyle='#07131bde';g.fillRect(a.x-23,a.y+22,46,4);g.fillStyle='#45606c';g.fillRect(a.x-23,a.y+22,46,4);
+ g.fillStyle=a.hp>2?'#77eaff':a.hp>1?'#ffdc8f':'#ff9587';g.fillRect(a.x-23,a.y+22,46*(a.hp/Math.max(1,a.maxhp)),4);
+ g.fillStyle=['#a4e8ff','#b2c8ff','#a9f2d3'][id]||'#b5e8ff';g.font='700 8px system-ui';g.textAlign='center';
+ g.fillText(a.name+(a.retreating?' / RTB':''),a.x,a.y+38);g.restore();
 }
 function drawAllies(){for(const a of allies){if(!a.dead&&a.state!=='gone')drawEscort(a)}}
 
@@ -1612,6 +1750,18 @@ function drawBeams(){for(let b of beams){g.save();const warning=b.time<b.warn,al
 function drawOptions(){if(!player)return;
  for(let i=0;i<player.option;i++){let q=optionPos(i);g.save();g.translate(q.x,q.y);g.rotate(now*2+i);g.shadowColor='#9ee7ff';g.shadowBlur=10;g.strokeStyle='#c6f4ff';g.lineWidth=1.5;g.fillStyle='#143544';g.beginPath();for(let k=0;k<4;k++){let a=k*TAU/4;g.lineTo(Math.cos(a)*10,Math.sin(a)*10)}g.closePath();g.fill();g.stroke();g.fillStyle='#ffffff';g.beginPath();g.arc(0,0,3,0,TAU);g.fill();g.restore()}
  for(let i=0;i<player.drone;i++){let q=dronePos(i);g.save();g.translate(q.x,q.y);g.rotate(now*.8);g.fillStyle='#baf7ff';g.shadowBlur=10;g.shadowColor='#5dcfff';g.beginPath();g.moveTo(0,-9);g.lineTo(10,7);g.lineTo(0,3);g.lineTo(-10,7);g.closePath();g.fill();g.restore()}
+ if(player.aegis>0){
+   const charges=player.aegisCharge||0,phase=now*1.7;
+   g.save();g.globalCompositeOperation='screen';g.strokeStyle=charges?'#75dbffbd':'#4e859262';g.shadowColor='#68e2ff';g.shadowBlur=charges?14:3;
+   for(let i=0;i<player.aegis;i++){
+     let a=phase+i*TAU/Math.max(1,player.aegis),x=player.x+Math.cos(a)*34,y=player.y+Math.sin(a)*30;
+     g.save();g.translate(x,y);g.rotate(a);
+     g.fillStyle=charges?'#8deaff':'#376e80';g.fillRect(-4,-5,8,10);g.fillStyle='#e8ffff';g.fillRect(-1,-7,2,3);g.restore();
+   }
+   if(charges>0){g.lineWidth=1.25;g.beginPath();g.ellipse(player.x,player.y-1,28+Math.sin(now*4)*1.8,31,0,0,TAU);g.stroke();}
+   g.restore();
+ }
+
 }
 function drawEnemyGroup(){for(let e of enemies){drawCreature(e,e.type);
  if(['ace','carrier','plate','warden','sentinel'].includes(e.type)){const w=e.r*2.2,y=e.y-e.r*1.28;g.fillStyle='#040b12b8';g.fillRect(e.x-w/2,y,w,3);g.fillStyle=theme().accent;g.fillRect(e.x-w/2,y,w*clamp(e.hp/e.maxhp,0,1),3)}
@@ -1641,7 +1791,7 @@ function drawMuzzleFlash(){
 }
 function drawParticles(){for(let p of particles){g.save();g.globalAlpha=Math.min(1,p.life/.2,p.life/p.max);if(p.kind==='chunk'){g.translate(p.x,p.y);g.rotate((1-p.life/p.max)*3);g.fillStyle=p.color;g.fillRect(-p.r,-p.r*.45,p.r*2,p.r*.9);g.strokeStyle='#e7baa466';g.lineWidth=.5;g.strokeRect(-p.r,-p.r*.45,p.r*2,p.r*.9)}else{g.shadowColor=p.color;g.shadowBlur=7;g.fillStyle=p.color;g.beginPath();g.arc(p.x,p.y,p.r,0,TAU);g.fill()}g.restore()}
  for(let q of rings){g.save();g.strokeStyle=q.color;g.lineWidth=3;g.globalAlpha=.7*(1-q.r/q.max);g.shadowBlur=15;g.shadowColor=q.color;g.beginPath();g.arc(q.x,q.y,q.r,0,TAU);g.stroke();g.restore()}for(let t of texts){g.save();g.globalAlpha=Math.min(1,t.time/.35);paintText(t.t,t.x,t.y,t.color,t.size);g.restore()}}
-function drawHUD(){if(!player)return;g.save();g.fillStyle='#040609d9';g.fillRect(0,0,W,62);g.fillStyle='#171019ed';g.fillRect(0,62,W,2);g.fillStyle='#d8cac4';g.textAlign='left';g.font='900 15px ui-monospace,Consolas,monospace';g.fillText(String(score).padStart(7,'0'),15,20);g.font='750 10px system-ui';g.fillStyle='#c79d94';g.fillText(`AREA ${s+1}/${STAGES.length}  ${D.label}  ${musicCue==='mid'?'♪ MID-BOSS':musicCue==='boss'?'♪ '+musicSegment.toUpperCase():'♪ STAGE'}  SHIP SHIRAYUKI`,15,37);g.fillStyle='#9bb1ad';g.fillText(`${player.weapon.toUpperCase()} L${player.level}    OPT ×${player.option}   MIS ×${player.missile}   DRN ×${player.drone}   WING ${aliveAllies().length}/${Math.max(1,allies.length)}`,15,52);
+function drawHUD(){if(!player)return;g.save();g.fillStyle='#040609d9';g.fillRect(0,0,W,62);g.fillStyle='#171019ed';g.fillRect(0,62,W,2);g.fillStyle='#d8cac4';g.textAlign='left';g.font='900 15px ui-monospace,Consolas,monospace';g.fillText(String(score).padStart(7,'0'),15,20);g.font='750 10px system-ui';g.fillStyle='#c79d94';g.fillText(`AREA ${s+1}/${STAGES.length}  ${D.label}  ${musicCue==='mid'?'♪ MID-BOSS':musicCue==='boss'?'♪ '+musicSegment.toUpperCase():'♪ STAGE'}  SHIP SHIRAYUKI`,15,37);g.fillStyle='#9bb1ad';g.fillText(`${player.weapon.toUpperCase()} L${player.level}    OPT ×${player.option}   MIS ×${player.missile}   DRN ×${player.drone}   WING ${aliveAllies().length}/${Math.max(1,allies.length)}   AG ${player.aegisCharge||0}`,15,52);
  g.textAlign='right';g.fillStyle='#cec4c6';g.font='800 10px system-ui';g.fillText('HULL',459,15);for(let i=0;i<player.maxhp;i++){g.fillStyle=i<player.hp?'#cf8c81':'#332d34';g.strokeStyle=i<player.hp?'#f3c8af':'#6a5355';g.lineWidth=1;g.fillRect(461-(i+1)*18,23,14,8);g.strokeRect(461-(i+1)*18,23,14,8)}g.fillStyle='#8dd9c2';g.fillText(`BARRIER ${player.barrier}`,459,51);
  g.fillStyle='#101b24';g.fillRect(0,H-5,W,5);g.fillStyle=theme().accent;g.fillRect(0,H-5,W*clamp(stageTime/113,0,1),5);g.restore();const major=mid||boss;if(major){let f=major.hp/major.maxhp;g.fillStyle='#120911dd';g.fillRect(20,72,440,32);g.strokeStyle='#746161';g.lineWidth=1;g.strokeRect(20,72,440,32);g.fillStyle='#ba625b';g.fillRect(23,92,434*clamp(f,0,1),8);g.fillStyle='#e4c7bb';g.font='900 12px system-ui';g.textAlign='left';g.fillText(major.type==='major'?theme().boss:theme().mid,27,85);g.textAlign='right';g.fillText(Math.ceil(f*100)+'%',449,85)}else if(stageTime>47&&!bossTriggered){paintText((ACTS[actId]?.name||'ADVANCE')+' // '+Math.round(stageTime/113*100)+'%',W/2,79,theme().accent,11)}
  if(mode==='clear')paintText('THREAT NEUTRALIZED',W/2,350,'#ffccb7',27);
@@ -1651,11 +1801,9 @@ function initEvents(){skipLaunch.addEventListener('click',e=>{e.stopPropagation(
 function loop(t){let dt=last?clamp((t-last)/1000,0,.033):.016;last=t;try{tick(dt);render()}catch(err){console.error('FLESHFALL RUNTIME ERROR',err);hint.textContent='予期しない処理エラー。再起動するか、画面のスクリーンショットを共有してください';if(mode==='playing')showMenu('paused')}requestAnimationFrame(loop)}
 initEvents();bgCache[0]=makeBg(0);requestAnimationFrame(loop);
 // Development-only inspection hook, without any effect on the normal game.
-window.__FLESHFALL_DEV={pickupSound:(kind='chip')=>pickupSFX(kind),launch:()=>({active:launchActive,time:launchTime,stage:s}),skipLaunch:()=>finishLaunch(),comms:()=>({visible:comms.classList.contains('show'),from:commFrom.textContent,line:commLine.textContent}),upgrades:()=>Object.keys(UPS),chooseByName:id=>{if(mode==='playing'){upChoice={items:[id,'barrier','repair'],time:5};selectPower(0)}},simulateKill:()=>{if(enemies[0])killEnemy(enemies[0])},stats:()=>({version:GAME_VERSION,stageCount:STAGES.length,musicTrack,musicBoss,musicPlaying:musicTimer!==null,isFiring:isFiring(),mode,diff,s,stageTime,score,hp:player?.hp,barrier:player?.barrier,weapon:player?.weapon,weaponLevel:player?.level,enemyCount:enemies.length,bulletCount:ebullets.length,playerBulletCount:pbullets.length,pickups:pickups.length,bossHp:boss?.hp,midHp:mid?.hp,upgradeVisible:!!upChoice,rescueSpawned,interceptedShots}),skipToMid:()=>{if(mode==='playing'){stageTime=53;if(!midTriggered)createMajor(false)}},skipToBoss:()=>{if(mode==='playing'){stageTime=114;midTriggered=true;midBeaten=true;mid=null;if(!bossTriggered)createMajor(true)}},power:()=>{if(mode==='playing')triggerChoice()},equip:(weapon,lv=2)=>{if(player){player.weapon=weapon;player.level=clamp(lv,1,3)}},defeatBoss:()=>{if(boss)majorDead(boss);else if(mid)majorDead(mid)},advance:seconds=>{let n=Math.ceil(seconds/.033);for(let i=0;i<n;i++)tick(.033)},invincible:seconds=>{if(player)player.inv=seconds},maxLoadout:()=>{if(player){player.weapon='vulcan';player.level=3;player.option=2;player.missile=2;player.barrier=3;player.bomb=5}},setBombMode:m=>{if(player){player.bombMode=m;refreshBomb()}},setStage:i=>{if(i>=0&&i<STAGES.length){mode='playing';overlay.classList.add('hidden');bombBtn.classList.add('active');resetStage(i,true)}},setFire:b=>{fireHeld=!!b},musicSpecs:()=>({normal:MUSIC_PROFILE.length,mid:MID_PROFILE.length,boss:BOSS_PROFILE.length,stageNames:STAGES.map(t=>t.name),cue:musicCue,segment:musicSegment,step:musicStep,energy:musicEnergy,phrase:Math.floor(musicStep/16),context:audio?.state}),director:()=>({act:actId,name:ACTS[actId]?.name,elapsed:stageTime,musicEnergy,events:[...eventFired]}),testSeekTime:t=>{if(mode==='playing'&&!launchActive){stageTime=t;actId=-1;directorTick(.02)}},testSeekMusic:n=>{if(audio){musicStep=n;musicNextAt=audio.currentTime+.005;musicSchedule()}},testBossPhase:p=>{if(boss){boss.inv=0;boss.hp=boss.maxhp*(p===2?.28:.62);majorAct(boss,.04)}},
+window.__FLESHFALL_DEV={pickupSound:(kind='chip')=>pickupSFX(kind),launch:()=>({active:launchActive,time:launchTime,stage:s}),skipLaunch:()=>finishLaunch(),comms:()=>({visible:comms.classList.contains('show'),from:commFrom.textContent,line:commLine.textContent}),upgrades:()=>Object.keys(UPS),chooseByName:id=>{if(mode==='playing'){upChoice={items:[id,'barrier','repair'],time:5,stacks:1};selectPower(0)}},simulateKill:()=>{if(enemies[0])killEnemy(enemies[0])},stats:()=>({version:GAME_VERSION,stageCount:STAGES.length,musicTrack,musicBoss,musicPlaying:musicTimer!==null,isFiring:isFiring(),mode,diff,s,stageTime,score,hp:player?.hp,barrier:player?.barrier,weapon:player?.weapon,weaponLevel:player?.level,enemyCount:enemies.length,bulletCount:ebullets.length,playerBulletCount:pbullets.length,pickups:pickups.length,bossHp:boss?.hp,midHp:mid?.hp,upgradeVisible:!!upChoice,rescueSpawned,interceptedShots}),skipToMid:()=>{if(mode==='playing'){stageTime=53;if(!midTriggered)createMajor(false)}},skipToBoss:()=>{if(mode==='playing'){stageTime=114;midTriggered=true;midBeaten=true;mid=null;if(!bossTriggered)createMajor(true)}},power:()=>{if(mode==='playing')triggerChoice()},equip:(weapon,lv=2)=>{if(player){player.weapon=weapon;player.level=clamp(lv,1,3)}},defeatBoss:()=>{if(boss)majorDead(boss);else if(mid)majorDead(mid)},advance:seconds=>{let n=Math.ceil(seconds/.033);for(let i=0;i<n;i++)tick(.033)},invincible:seconds=>{if(player)player.inv=seconds},maxLoadout:()=>{if(player){player.weapon='vulcan';player.level=3;player.option=2;player.missile=2;player.barrier=3;player.bomb=5}},setBombMode:m=>{if(player){player.bombMode=m;refreshBomb()}},setStage:i=>{if(i>=0&&i<STAGES.length){mode='playing';overlay.classList.add('hidden');bombBtn.classList.add('active');resetStage(i,true)}},setFire:b=>{fireHeld=!!b},musicSpecs:()=>({normal:MUSIC_PROFILE.length,mid:MID_PROFILE.length,boss:BOSS_PROFILE.length,stageNames:STAGES.map(t=>t.name),cue:musicCue,segment:musicSegment,step:musicStep,energy:musicEnergy,phrase:Math.floor(musicStep/16),context:audio?.state}),director:()=>({act:actId,name:ACTS[actId]?.name,elapsed:stageTime,musicEnergy,events:[...eventFired]}),testSeekTime:t=>{if(mode==='playing'&&!launchActive){stageTime=t;actId=-1;directorTick(.02)}},testSeekMusic:n=>{if(audio){musicStep=n;musicNextAt=audio.currentTime+.005;musicSchedule()}},testBossPhase:p=>{if(boss){boss.inv=0;boss.hp=boss.maxhp*(p===2?.28:.62);majorAct(boss,.04)}},
  interceptTest:()=>{if(player){const p={x:player.x,y:player.y-95,vx:0,vy:-100,damage:4,kind:'slug',r:7,age:0,life:4,hit:new Set()};pbullets.push(p);spawnBullet(player.x,player.y-95,0,0,'glob',5);}},rescue:(type)=>spawnRescue(type),forceDanger:()=>{if(player){player.hp=1;player.barrier=0;rescueCooldown=0;rescueDistress=10}},makeBullets:(count=50)=>{if(player)for(let i=0;i<count;i++)ebullets.push({x:rand(5,475),y:rand(90,650),vx:0,vy:0,r:4,age:0,life:6,kind:'glob'})},
  commsBounds:()=>{let a=comms.getBoundingClientRect(),b=frame.getBoundingClientRect();return {comm:{x:a.x,y:a.y,w:a.width,h:a.height},frame:{x:b.x,y:b.y,w:b.width,h:b.height}}},getPickups:()=>pickups.map(p=>({type:p.type,x:p.x,y:p.y,rescue:!!p.rescue})),getUpgrade:()=>upChoice?{items:upChoice.items,stacks:upChoice.stacks,time:upChoice.time}:null,claimPickup:(type)=>{if(player)getPickup({type,rescue:['purge','cleanse'].includes(type)})}};
-})();
-
 /* === PHASE 09 : ENEMY MILITARIZATION OVERRIDE === */
 (function(){
   const VERSION_PATCH = '9.3-PHASE09-ENEMY-MILITARY';
@@ -1791,7 +1939,6 @@ window.__FLESHFALL_DEV={pickupSound:(kind='chip')=>pickupSFX(kind),launch:()=>({
     } else if(index===1){
       // glacial canyon / fortress
       let g=c.createLinearGradient(0,0,0,1260);g.addColorStop(0,'#081422');g.addColorStop(.22,'#12314d');g.addColorStop(.54,'#173b56');g.addColorStop(1,'#0a1824');c.fillStyle=g;c.fillRect(0,0,480,1260); haze(240,170,220,90,'#d8f7ff',.18); starfield(180,'#dffaff');
-      for(let i=0;i<12;i++){let y=i*112-15; let lx=18+Math.sin(i*.7)*20; let rx=462+Math.cos(i*.8)*20; poly([[0,y+120],[0,y-20],[lx+26,y+26],[lx+58,y+120]], metallicGradient=c.createLinearGradient(0,y,90,y+120), null); }
       for(let i=0;i<12;i++){
         let y=i*112-15; let lx=18+Math.sin(i*.7)*20; let rx=462+Math.cos(i*.8)*20;
         let gl1=c.createLinearGradient(0,y,lx+58,y+120); gl1.addColorStop(0,'#d8f1ff'); gl1.addColorStop(.18,'#7ea7c0'); gl1.addColorStop(.52,'#30516c'); gl1.addColorStop(1,'#183047'); poly([[0,y+120],[0,y-20],[lx+26,y+26],[lx+58,y+120]], gl1, '#effcff55',1.3);
@@ -1899,4 +2046,78 @@ window.__FLESHFALL_DEV={pickupSound:(kind='chip')=>pickupSFX(kind),launch:()=>({
   }
 })();
 
+
+const ACOUSTIC_SCORES=window.SHIRA_ACOUSTIC_SCORES||{};
+
+// Cinematic sampled orchestra: pre-rendered, ORIGINAL compositions from a GM
+// acoustic-instrument soundfont (strings, brass, piano, harp, choir, percussion).
+// No oscillator-based synthesizer melodies in game BGM. SFX remain generated.
+let orchestralActive=null,orchestralMix=[],orchestralClock=null;
+function sampledAudioEntry(id){return ACOUSTIC_SCORES[id]||ACOUSTIC_SCORES['0_stage']}
+function orchestrateClose(track){if(!track||!track.el)return;try{track.el.pause();track.el.removeAttribute('src');track.el.load()}catch(_){}}
+function orchestrateFade(track,to,secs=.62){if(!track)return;track.from=track.el.volume;track.target=to;track.elapsed=0;track.fadeFor=Math.max(.04,secs)}
+function orchestrateNew(id,position=0){
+ const asset=sampledAudioEntry(id),el=new Audio();el.preload='auto';el.src=asset.uri;el.volume=0;el.loop=false;
+ const tr={id,asset,el,from:0,target:1,elapsed:0,fadeFor:.6,looping:false};
+ if(position>0){const seek=()=>{try{el.currentTime=position}catch(_){}};el.addEventListener('loadedmetadata',seek,{once:true})}
+ el.addEventListener('ended',()=>{
+   if(orchestralActive!==tr)return;
+   try{el.currentTime=asset.loop||0;el.play().catch(()=>{})}catch(_){}
+ });
+ el.play().catch(e=>{console.warn('Acoustic score playback unavailable',e?.name||e)});
+ orchestralMix.push(tr);return tr;
+}
+function orchestralTick(){
+ const dt=.075;
+ for(let i=orchestralMix.length-1;i>=0;i--){const tr=orchestralMix[i];
+  if(tr.fadeFor){tr.elapsed+=dt;let p=Math.min(1,tr.elapsed/tr.fadeFor);tr.el.volume=Math.max(0,Math.min(1,tr.from+(tr.target-tr.from)*(p*p*(3-2*p))));if(p>=1){tr.fadeFor=0;if(tr.target===0){orchestrateClose(tr);orchestralMix.splice(i,1);continue}}}
+ }
+ const tr=orchestralActive;if(!tr||!tr.el||!tr.el.duration||!Number.isFinite(tr.el.duration))return;
+ const position=tr.el.currentTime, length=tr.el.duration;
+ if(musicCue==='boss')musicSegment=position<4.8?'solemn':position<(tr.asset.loop||13)?'rising':position<length*.7?'combat':'inferno';
+ else musicSegment=musicCue==='mid'?'epic':'stage';
+ musicStep=Math.floor(position*4);musicNextAt=position;
+ // Double-buffer the same pre-rendered orchestral recording for a 650ms
+ // equal-time crossfade; boss repeats combat music, never its ceremonial intro.
+ if(!tr.looping && length>5 && position>length-.90){
+   tr.looping=true;
+   const next=orchestrateNew(tr.id,tr.asset.loop||0);
+   orchestrateFade(tr,0,.72);orchestrateFade(next,1,.72);
+   orchestralActive=next;
+ }
+}
+musicStop = function(){
+ if(musicTimer!==null){clearInterval(musicTimer);musicTimer=null}
+ if(orchestralClock!==null){clearInterval(orchestralClock);orchestralClock=null}
+ for(const t of orchestralMix)orchestrateFade(t,0,.5);
+ orchestralActive=null;
+ // Short fade after the mode changes; release resources even if paused.
+ setTimeout(()=>{if(!orchestralActive){for(const t of orchestralMix)orchestrateClose(t);orchestralMix=[]}},620);
+}
+musicStart = function(cue='stage'){
+ if(typeof cue==='boolean')cue=cue?'boss':'stage';
+ if(!['stage','mid','boss'].includes(cue))cue='stage';
+ const id=`${s}_${cue}`;
+ if(orchestralActive?.id===id && sound)return;
+ const previous=orchestralActive;
+ musicCue=cue;musicBoss=cue==='boss';musicTrack=s;
+ musicSegment=cue==='boss'?'solemn':cue==='mid'?'epic':'stage';
+ if(!sound||mode!=='playing'){musicStop();return}
+ if(previous)orchestrateFade(previous,0,.85);
+ const fresh=orchestrateNew(id,0);
+ orchestrateFade(fresh,1,.75);orchestralActive=fresh;
+ if(orchestralClock===null)orchestralClock=setInterval(orchestralTick,75);
+ musicTimer=orchestralClock;
+}
+window.__ORCHESTRAL_DEV={tracks:()=>Object.keys(ACOUSTIC_SCORES).length,now:()=>({id:orchestralActive?.id,paused:orchestralActive?.el.paused,time:orchestralActive?.el.currentTime,loop:orchestralActive?.asset.loop,volume:orchestralActive?.el.volume,segment:musicSegment}),jump:time=>{if(orchestralActive)orchestralActive.el.currentTime=time}};
+
+window.__SHIRAYUKI_V10={
+ shield:()=>player?{level:player.aegis,charges:player.aegisCharge,cooldown:player.aegisCooldown,hp:player.hp}:null,
+ attackStyles:()=>allies.map(a=>({id:a.index,name:a.name,hp:a.hp,cooldown:a.fireClock})),
+ testShieldHit:()=>{if(!player)return false;const b={x:player.x,y:player.y,r:5,kind:'glob'};return aegisIntercept(b)},
+ setLaunchTime:t=>{if(launchActive)launchTime=t},
+ carrierReady:()=>!!carrierArt,
+ summonThirdAlly:()=>reinforceAlly(),
+};
+})();
 </script></body></html>
